@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carpeta Pedagogica Digital</title>
+    <link rel="shortcut icon" href="https://virtual.udabol.edu.bo/carpetaverde/estudiante/../images/favicon.ico" />
+    <style>
+        body { background: #FFF; font-family: 'Open Sans', sans-serif; font-size: 14px; height: 100%; margin: 0; padding: 0; color: #333; }
+        
+        /* Barra superior amarilla */
+        .header-top { background-color: #ffcc00; padding: 6px 15px; font-size: 12px; font-weight: bold; color: #000; display: flex; justify-content: space-between; align-items: center; }
+        .header-top select { border: 1px solid #ccc; background: #fff; font-size: 11px; padding: 2px 5px; border-radius: 2px; margin-left: 10px; }
+
+        /* Barra de navegación de pestañas */
+        .nav-bar { background-color: #f5f5f5; padding: 8px 15px; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 5px; }
+        .tab-green { background-color: #88b71d; color: white; padding: 6px 15px; font-size: 13px; font-weight: bold; display: flex; align-items: center; gap: 5px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); margin-right: 2px; }
+        .tab-exam-title { background: white; border: 1px solid #ccc; padding: 6px 15px; font-size: 13px; font-weight: bold; color: #333; flex: 1; border-radius: 2px; }
+
+        .container-examen { display: flex; max-width: 1250px; margin: 20px auto; gap: 20px; padding: 0 10px; }
+        
+        /* Panel Izquierdo */
+        .sidebar-left { width: 230px; background: white; padding: 15px; border: 1px solid #dcdcdc; border-radius: 4px; height: fit-content; }
+        .titulo-seccion { font-size: 12px; font-weight: bold; text-align: center; border-bottom: 1px solid #dcdcdc; padding-bottom: 6px; margin-bottom: 10px; color: #333; display: flex; justify-content: center; align-items: center; gap: 5px; }
+        .grid-preguntas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 15px; }
+        .btn-preg { width: 32px; height: 32px; border: 1px solid #ccc; background: white; text-align: center; line-height: 32px; font-size: 12px; cursor: pointer; border-radius: 2px; }
+        .btn-preg.active { border: 2px solid #333; font-weight: bold; }
+        .btn-preg.answered { background-color: #6bb122; color: white; border: none; }
+        
+        /* Contenido Central */
+        .main-content { flex: 1; background: white; padding: 25px; border: 1px solid #dcdcdc; border-radius: 4px; position: relative; min-height: 380px; }
+        .main-content h3 { margin-top: 0; color: #222; font-size: 17px; font-weight: bold; text-align: center; }
+        .sub-titulo { color: #444; font-size: 13px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+        .opciones label { display: block; margin: 12px 0; font-size: 14px; cursor: pointer; color: #222; }
+        
+        .btn-siguiente { background-color: #88b71d; color: white; border: none; padding: 8px 25px; font-size: 13px; border-radius: 3px; cursor: pointer; display: block; margin: 40px auto 10px auto; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .num-pregunta-footer { font-size: 11px; color: #666; font-style: italic; position: absolute; bottom: 15px; left: 25px; }
+
+        /* Panel Derecho */
+        .sidebar-right { width: 260px; background: white; padding: 15px; border: 1px solid #dcdcdc; border-radius: 4px; height: fit-content; }
+        .timer-box { display: flex; justify-content: center; gap: 4px; margin: 10px 0 15px 0; }
+        .digit { background: #222; color: white; padding: 6px 10px; font-size: 20px; font-weight: bold; border-radius: 3px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+        .btn-terminar { width: 100%; background-color: #337ab7; color: white; border: none; padding: 8px; border-radius: 3px; font-weight: bold; cursor: pointer; font-size: 13px; }
+        .btn-terminar:hover { background-color: #286090; }
+
+        /* Pantalla de Resultados */
+        #pantalla-resultados { display: none; text-align: center; padding: 40px 20px; }
+        #pantalla-resultados h2 { color: #333; margin-bottom: 10px; }
+        .calificacion-box { font-size: 40px; font-weight: bold; color: #6bb122; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="header-top">
+        <span>Consultas de carpeta pedagógica: virtual@udabol.edu.bo</span>
+        <div>
+            <span>Seleccionar idioma</span>
+            <select><option>Español</option></select>
+        </div>
+    </div>
+
+    <div class="nav-bar">
+        <div class="tab-green">▢ Materias</div>
+        <div class="tab-green">▢ Exámenes</div>
+        <div class="tab-exam-title">▢ 3P-MED-2026: Tercer Parcial Examen de Medicina</div>
+    </div>
+
+    <div class="container-examen">
+        <!-- Panel Izquierdo -->
+        <div class="sidebar-left">
+            <div class="titulo-seccion">▢ PREGUNTAS</div>
+            <div class="grid-preguntas" id="grid-preguntas"></div>
+            <div style="display: flex; justify-content: space-around; font-size: 11px; border-top: 1px solid #dcdcdc; padding-top: 10px; color: #555;">
+                <div style="text-align: center;"><div style="width: 14px; height: 14px; background: #6bb122; margin: 0 auto 2px auto; border-radius: 2px;"></div>Respondidas</div>
+                <div style="text-align: center;"><div style="width: 14px; height: 14px; border: 1px solid #ccc; margin: 0 auto 2px auto; border-radius: 2px;"></div>Sin responder</div>
+            </div>
+        </div>
+
+        <!-- Contenido Central -->
+        <div class="main-content" id="contenedor-principal">
+            <div id="seccion-pregunta">
+                <h3>3P-MED-2026: Tercer Parcial Examen de Medicina</h3>
+                <div class="sub-titulo">MED-101: Morfofisiología y Clínica - (Valor total: 100 pts)</div>
+                <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 15px 0;">
+                
+                <p id="texto-pregunta" style="font-size: 15px; font-weight: 500; color: #111; margin-top: 15px;"></p>
+                
+                <div class="opciones" id="contenedor-opciones"></div>
+
+                <button class="btn-siguiente" id="btn-siguiente">▢ Siguiente</button>
+                <div class="num-pregunta-footer">Pregunta nro. <span id="id-interno">176985301</span></div>
+            </div>
+
+            <!-- Resultados Ocultos -->
+            <div id="pantalla-resultados">
+                <h2>¡Examen Finalizado!</h2>
+                <p style="color: #666;">Has completado el test de medicina de 5 preguntas.</p>
+                <div class="calificacion-box" id="texto-calificacion">Nota: 0 / 100</div>
+                <p id="detalle-respuestas" style="color: #444; font-size: 14px; font-weight: bold;"></p>
+                <button class="btn-siguiente" style="margin: 20px auto 0 auto;" onclick="location.reload();">Reiniciar Test</button>
+            </div>
+        </div>
+
+        <!-- Panel Derecho -->
+        <div class="sidebar-right">
+            <div class="titulo-seccion">▢ TIEMPO RESTANTE</div>
+            <div style="text-align: center; font-size: 11px; color: #666; margin-top: 5px;">Minutos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segundos</div>
+            <div class="timer-box">
+                <div class="digit" id="m1">3</div>
+                <div class="digit" id="m2">0</div>
+                <span style="font-size: 20px; font-weight: bold; align-self: center;">:</span>
+                <div class="digit" id="s1">0</div>
+                <div class="digit" id="s2">0</div>
+            </div>
+            <button class="btn-terminar" id="btn-terminar">▢ Terminar intento</button>
+            
+            <div style="border-top: 1px solid #dcdcdc; margin-top: 15px; padding-top: 10px;">
+                <div style="font-size: 12px; font-weight: bold; text-align: center; margin-bottom: 6px; color: #333;">▢ IMPORTANTE</div>
+                <ol style="font-size: 10px; color: #444; padding-left: 15px; line-height: 1.4; margin: 0;">
+                    <li>El examen consta de 5 preguntas de medicina (20 puntos c/u).</li>
+                    <li>Al terminar de contestar, presione el botón 'Terminar intento'.</li>
+                    <li>Se mostrará automáticamente la calificación obtenida sobre 100.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bancoPreguntas = [
+            { 
+                pregunta: "¿Cuál es la principal función de los glóbulos rojos (eritrocitos) en la sangre?", 
+                opciones: ["Combate de infecciones", "Coagulación sanguínea", "Transporte de oxígeno", "Regulación de la temperatura"],
+                correcta: "Transporte de oxígeno" 
+            },
+            { 
+                pregunta: "¿Qué válvula cardíaca se encuentra comunicando la aurícula izquierda con el ventrículo izquierdo?", 
+                opciones: ["Válvula tricúspide", "Válvula mitral (bicúspide)", "Válvula aórtica", "Válvula pulmonar"],
+                correcta: "Válvula mitral (bicúspide)" 
+            },
+            { 
+                pregunta: "¿Cuál es la unidad funcional y estructural básica del riñón?", 
+                opciones: ["La neurona", "El nefrón", "El glomérulo", "El alvéolo"],
+                correcta: "El nefrón" 
+            },
+            { 
+                pregunta: "¿En qué órgano humano se produce principalmente la insulina?", 
+                opciones: ["El hígado", "El páncreas", "El bazo", "Los riñones"],
+                correcta: "El páncreas" 
+            },
+            { 
+                pregunta: "¿Cómo se le denomina médicamente a la presión arterial elevada de forma crónica?", 
+                opciones: ["Hipotensión", "Taquicardia", "Hipertensión", "Bradicardia"],
+                correcta: "Hipertensión" 
+            }
+        ];
+
+        let preguntaActual = 0;
+        const totalPreguntas = 5;
+        let respuestasUsuario = new Array(totalPreguntas).fill(null);
+
+        function renderizarGrid() {
+            const grid = document.getElementById('grid-preguntas');
+            grid.innerHTML = '';
+            for (let i = 0; i < totalPreguntas; i++) {
+                let div = document.createElement('div');
+                div.className = 'btn-preg';
+                div.innerText = i + 1;
+                if (i === preguntaActual) div.classList.add('active');
+                if (respuestasUsuario[i] !== null) div.classList.add('answered');
+                div.onclick = () => { preguntaActual = i; cargarPregunta(); };
+                grid.appendChild(div);
+            }
+        }
+
+        function cargarPregunta() {
+            let item = bancoPreguntas[preguntaActual];
+            document.getElementById('texto-pregunta').innerText = (preguntaActual + 1) + ".- " + item.pregunta;
+            
+            let contenedorOp = document.getElementById('contenedor-opciones');
+            contenedorOp.innerHTML = '';
+            item.opciones.forEach((op) => {
+                let label = document.createElement('label');
+                let checked = (respuestasUsuario[preguntaActual] === op) ? 'checked' : '';
+                label.innerHTML = `<input type="radio" name="resp" value="${op}" ${checked} onclick="guardarRespuesta('${op}')"> ${op}`;
+                contenedorOp.appendChild(label);
+            });
+
+            document.getElementById('id-interno').innerText = 176985301 + preguntaActual;
+            renderizarGrid();
+        }
+
+        function guardarRespuesta(opcion) {
+            respuestasUsuario[preguntaActual] = opcion;
+            renderizarGrid();
+        }
+
+        document.getElementById('btn-siguiente').onclick = function() {
+            if (preguntaActual < totalPreguntas - 1) {
+                preguntaActual++;
+                cargarPregunta();
+            } else {
+                alert("Has llegado a la última pregunta. Haz clic en 'Terminar intento' en el panel derecho cuando desees finalizar.");
+            }
+        };
+
+        document.getElementById('btn-terminar').onclick = function() {
+            if (confirm("¿Estás seguro de que deseas terminar el intento y enviar tus respuestas?")) {
+                calcularYMostrarNota();
+            }
+        };
+
+        function calcularYMostrarNota() {
+            let aciertos = 0;
+            bancoPreguntas.forEach((item, index) => {
+                if (respuestasUsuario[index] === item.correcta) {
+                    aciertos++;
+                }
+            });
+
+            let notaFinal = aciertos * 20;
+
+            document.getElementById('seccion-pregunta').style.display = 'none';
+            document.getElementById('pantalla-resultados').style.display = 'block';
+            document.getElementById('texto-calificacion').innerText = `Nota: ${notaFinal} / 100`;
+            document.getElementById('detalle-respuestas').innerText = `Acertaste ${aciertos} de ${totalPreguntas} preguntas correctamente.`;
+        }
+
+        let segundosTotales = 30 * 60;
+        let timer = setInterval(() => {
+            if (segundosTotales > 0) {
+                segundosTotales--;
+            } else {
+                clearInterval(timer);
+                alert("¡El tiempo ha terminado!");
+                calcularYMostrarNota();
+            }
+            let m = Math.floor(segundosTotales / 60);
+            let s = segundosTotales % 60;
+            let mStr = String(m).padStart(2, '0');
+            let sStr = String(s).padStart(2, '0');
+            document.getElementById('m1').innerText = mStr[0];
+            document.getElementById('m2').innerText = mStr[1];
+            document.getElementById('s1').innerText = sStr[0];
+            document.getElementById('s2').innerText = sStr[1];
+        }, 1000);
+
+        cargarPregunta();
+    </script>
+</body>
+</html>
