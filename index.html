@@ -32,17 +32,15 @@
         .btn-preg.active { border: 2px solid #333; font-weight: bold; }
         .btn-preg.answered { background-color: #6bb122; color: white; border: none; }
         
-        /* Contenido Central (ID cambiado a #content para tu userscript) */
+        /* Contenido Central con ID #content exigido por config.testContainerSelector */
         .main-content { flex: 1; background: white; padding: 25px; border: 1px solid #dcdcdc; border-radius: 4px; position: relative; min-height: 380px; }
         .main-content h3 { margin-top: 0; color: #222; font-size: 17px; font-weight: bold; text-align: center; }
         .sub-titulo { color: #444; font-size: 13px; font-weight: bold; text-align: center; margin-bottom: 20px; }
         
-        /* Clase .center requerida por extractQuestionData() */
-        .center .pregunta-texto { font-size: 1.2em; font-weight: 500; color: #111; margin-top: 15px; }
+        /* Estilos alineados al userscript */
         .opciones label { display: block; margin: 12px 0; font-size: 14px; cursor: pointer; color: #222; }
         
         .btn-siguiente { background-color: #88b71d; color: white; border: none; padding: 8px 25px; font-size: 13px; border-radius: 3px; cursor: pointer; display: block; margin: 40px auto 10px auto; font-weight: bold; display: flex; align-items: center; gap: 5px; }
-        .num-pregunta-footer { font-size: 11px; color: #666; font-style: italic; position: absolute; bottom: 15px; left: 25px; }
 
         /* Panel Derecho */
         .sidebar-right { width: 260px; background: white; padding: 15px; border: 1px solid #dcdcdc; border-radius: 4px; height: fit-content; }
@@ -86,19 +84,24 @@
             </div>
         </div>
 
-        <!-- Contenido Central con ID #content y clase .center -->
+        <!-- Contenido Central con ID #content -->
         <div class="main-content" id="content">
             <div id="seccion-pregunta" class="center">
                 <h3>3P-MED-2026: Tercer Parcial Examen de Medicina</h3>
                 <div class="sub-titulo">MED-101: Morfofisiología y Clínica - (Valor total: 100 pts)</div>
                 <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 15px 0;">
                 
-                <p class="pregunta-texto" id="texto-pregunta"></p>
+                <!-- Párrafo con el estilo exacto p[style*="font-size: 1.2em"] que busca el userscript -->
+                <p style="font-size: 1.2em; font-weight: 500; color: #111; margin-top: 15px;" id="texto-pregunta"></p>
                 
                 <div class="opciones" id="contenedor-opciones"></div>
 
                 <button class="btn-siguiente" id="btn-siguiente">▢ Siguiente</button>
-                <div class="num-pregunta-footer">Pregunta nro. <span id="id-interno">176985301</span></div>
+                
+                <!-- Párrafo que contiene exactamente "Pregunta nro." requerido por insertAnswer() -->
+                <p style="font-size: 11px; color: #666; font-style: italic; position: absolute; bottom: 15px; left: 25px;">
+                    Pregunta nro. <span id="id-interno">176985301</span>
+                </p>
             </div>
 
             <!-- Resultados Ocultos -->
@@ -122,7 +125,7 @@
                 <div class="digit" id="s1">0</div>
                 <div class="digit" id="s2">0</div>
             </div>
-            <!-- Botón con ID #save_question_button que activa el userscript -->
+            <!-- Botón con ID #save_question_button que activa el inicio del userscript -->
             <button class="btn-terminar" id="save_question_button">▢ Terminar intento</button>
             
             <div style="border-top: 1px solid #dcdcdc; margin-top: 15px; padding-top: 10px;">
@@ -165,7 +168,6 @@
             }
         ];
 
-        // Guardamos y recuperamos la pregunta actual usando localStorage para simular la recarga de página persistente
         let preguntaActual = parseInt(localStorage.getItem('udabol_pregunta_actual')) || 0;
         const totalPreguntas = 5;
         let respuestasUsuario = JSON.parse(localStorage.getItem('udabol_respuestas')) || new Array(totalPreguntas).fill(null);
@@ -211,11 +213,10 @@
         }
 
         function simularRecargaPagina() {
-            // Muestra la barra de carga superior idéntica a la real de la universidad
             document.getElementById('barra-carga').style.display = 'block';
             setTimeout(() => {
-                location.reload(); // Recarga real de la página, haciendo que tu userscript se ejecute desde cero tal como en el examen real
-            }, 600); // 0.6 segundos de simulación de espera de red
+                location.reload();
+            }, 600);
         }
 
         document.getElementById('btn-siguiente').onclick = function() {
@@ -233,6 +234,10 @@
                 calcularYMostrarNota();
             }
         };
+
+        function calcularYLogs() {
+            // Placeholder
+        }
 
         function calcularYMostrarNota() {
             let aciertos = 0;
