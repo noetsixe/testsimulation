@@ -92,8 +92,7 @@
                 <div class="opciones" id="contenedor-opciones"></div>
 
                 <button class="btn-siguiente" id="btn-siguiente">▢ Siguiente</button>
-                <!-- Modificado de div a p para compatibilidad con el userscript -->
-                <p class="num-pregunta-footer">Pregunta nro. <span id="id-interno">176985301</span></p>
+                <div class="num-pregunta-footer">Pregunta nro. <span id="id-interno">176985301</span></div>
             </div>
 
             <!-- Resultados Ocultos -->
@@ -173,7 +172,11 @@
                 div.innerText = i + 1;
                 if (i === preguntaActual) div.classList.add('active');
                 if (respuestasUsuario[i] !== null) div.classList.add('answered');
-                div.onclick = () => { preguntaActual = i; cargarPregunta(); };
+                div.onclick = () => { 
+                    preguntaActual = i; 
+                    cargarPregunta(); 
+                    dispararEventoUserscript();
+                };
                 grid.appendChild(div);
             }
         }
@@ -200,10 +203,17 @@
             renderizarGrid();
         }
 
+        function dispararEventoUserscript() {
+            // Fuerza un evento change o un cambio en el DOM para que el MutationObserver/Listeners del userscript detecten el cambio de pregunta al instante
+            const eventoFalso = new CustomEvent('change', { detail: { pregunta: preguntaActual + 1 } });
+            document.getElementById('content').dispatchEvent(eventoFalso);
+        }
+
         document.getElementById('btn-siguiente').onclick = function() {
             if (preguntaActual < totalPreguntas - 1) {
                 preguntaActual++;
                 cargarPregunta();
+                dispararEventoUserscript();
             } else {
                 alert("Has llegado a la última pregunta. Haz clic en 'Terminar intento' en el panel derecho cuando desees finalizar.");
             }
