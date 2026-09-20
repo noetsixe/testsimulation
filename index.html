@@ -9,6 +9,10 @@
     <style>
         body { background: #FFF; font-family: 'Open Sans', sans-serif; font-size: 14px; height: 100%; margin: 0; padding: 0; color: #333; }
         
+        /* Barra de carga superior estilo Udabol */
+        #barra-carga { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: #88b71d; display: none; z-index: 9999; animation: cargando 0.8s infinite; }
+        @keyframes cargando { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
+
         /* Barra superior amarilla */
         .header-top { background-color: #ffcc00; padding: 6px 15px; font-size: 12px; font-weight: bold; color: #000; display: flex; justify-content: space-between; align-items: center; }
         .header-top select { border: 1px solid #ccc; background: #fff; font-size: 11px; padding: 2px 5px; border-radius: 2px; margin-left: 10px; }
@@ -54,6 +58,8 @@
     </style>
 </head>
 <body>
+
+    <div id="barra-carga"></div>
 
     <div class="header-top">
         <span>Consultas de carpeta pedagógica: virtual@udabol.edu.bo</span>
@@ -101,7 +107,7 @@
                 <p style="color: #666;">Has completado el test de medicina de 5 preguntas.</p>
                 <div class="calificacion-box" id="texto-calificacion">Nota: 0 / 100</div>
                 <p id="detalle-respuestas" style="color: #444; font-size: 14px; font-weight: bold;"></p>
-                <button class="btn-siguiente" style="margin: 20px auto 0 auto;" onclick="location.reload();">Reiniciar Test</button>
+                <button class="btn-siguiente" style="margin: 20px auto 0 auto;" onclick="localStorage.clear(); location.reload();">Reiniciar Test</button>
             </div>
         </div>
 
@@ -159,9 +165,10 @@
             }
         ];
 
-        let preguntaActual = 0;
+        // Guardamos y recuperamos la pregunta actual usando localStorage para simular la recarga de página persistente
+        let preguntaActual = parseInt(localStorage.getItem('udabol_pregunta_actual')) || 0;
         const totalPreguntas = 5;
-        let respuestasUsuario = new Array(totalPreguntas).fill(null);
+        let respuestasUsuario = JSON.parse(localStorage.getItem('udabol_respuestas')) || new Array(totalPreguntas).fill(null);
 
         function renderizarGrid() {
             const grid = document.getElementById('grid-preguntas');
@@ -173,9 +180,8 @@
                 if (i === preguntaActual) div.classList.add('active');
                 if (respuestasUsuario[i] !== null) div.classList.add('answered');
                 div.onclick = () => { 
-                    preguntaActual = i; 
-                    cargarPregunta(); 
-                    dispararEventoUserscript();
+                    localStorage.setItem('udabol_pregunta_actual', i);
+                    simularRecargaPagina();
                 };
                 grid.appendChild(div);
             }
@@ -200,20 +206,23 @@
 
         function guardarRespuesta(opcion) {
             respuestasUsuario[preguntaActual] = opcion;
+            localStorage.setItem('udabol_respuestas', JSON.stringify(respuestasUsuario));
             renderizarGrid();
         }
 
-        function dispararEventoUserscript() {
-            // Fuerza un evento change o un cambio en el DOM para que el MutationObserver/Listeners del userscript detecten el cambio de pregunta al instante
-            const eventoFalso = new CustomEvent('change', { detail: { pregunta: preguntaActual + 1 } });
-            document.getElementById('content').dispatchEvent(eventoFalso);
+        function simularRecargaPagina() {
+            // Muestra la barra de carga superior idéntica a la real de la universidad
+            document.getElementById('barra-carga').style.display = 'block';
+            setTimeout(() => {
+                location.reload(); // Recarga real de la página, haciendo que tu userscript se ejecute desde cero tal como en el examen real
+            }, 600); // 0.6 segundos de simulación de espera de red
         }
 
         document.getElementById('btn-siguiente').onclick = function() {
             if (preguntaActual < totalPreguntas - 1) {
                 preguntaActual++;
-                cargarPregunta();
-                dispararEventoUserscript();
+                localStorage.setItem('udabol_pregunta_actual', preguntaActual);
+                simularRecargaPagina();
             } else {
                 alert("Has llegado a la última pregunta. Haz clic en 'Terminar intento' en el panel derecho cuando desees finalizar.");
             }
