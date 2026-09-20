@@ -28,10 +28,13 @@
         .btn-preg.active { border: 2px solid #333; font-weight: bold; }
         .btn-preg.answered { background-color: #6bb122; color: white; border: none; }
         
-        /* Contenido Central */
+        /* Contenido Central (ID cambiado a #content para tu userscript) */
         .main-content { flex: 1; background: white; padding: 25px; border: 1px solid #dcdcdc; border-radius: 4px; position: relative; min-height: 380px; }
         .main-content h3 { margin-top: 0; color: #222; font-size: 17px; font-weight: bold; text-align: center; }
         .sub-titulo { color: #444; font-size: 13px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+        
+        /* Clase .center requerida por extractQuestionData() */
+        .center .pregunta-texto { font-size: 1.2em; font-weight: 500; color: #111; margin-top: 15px; }
         .opciones label { display: block; margin: 12px 0; font-size: 14px; cursor: pointer; color: #222; }
         
         .btn-siguiente { background-color: #88b71d; color: white; border: none; padding: 8px 25px; font-size: 13px; border-radius: 3px; cursor: pointer; display: block; margin: 40px auto 10px auto; font-weight: bold; display: flex; align-items: center; gap: 5px; }
@@ -77,14 +80,14 @@
             </div>
         </div>
 
-        <!-- Contenido Central -->
-        <div class="main-content" id="contenedor-principal">
-            <div id="seccion-pregunta">
+        <!-- Contenido Central con ID #content y clase .center -->
+        <div class="main-content" id="content">
+            <div id="seccion-pregunta" class="center">
                 <h3>3P-MED-2026: Tercer Parcial Examen de Medicina</h3>
                 <div class="sub-titulo">MED-101: Morfofisiología y Clínica - (Valor total: 100 pts)</div>
                 <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 15px 0;">
                 
-                <p id="texto-pregunta" style="font-size: 15px; font-weight: 500; color: #111; margin-top: 15px;"></p>
+                <p class="pregunta-texto" id="texto-pregunta"></p>
                 
                 <div class="opciones" id="contenedor-opciones"></div>
 
@@ -113,7 +116,8 @@
                 <div class="digit" id="s1">0</div>
                 <div class="digit" id="s2">0</div>
             </div>
-            <button class="btn-terminar" id="btn-terminar">▢ Terminar intento</button>
+            <!-- Botón con ID #save_question_button que activa el userscript -->
+            <button class="btn-terminar" id="save_question_button">▢ Terminar intento</button>
             
             <div style="border-top: 1px solid #dcdcdc; margin-top: 15px; padding-top: 10px;">
                 <div style="font-size: 12px; font-weight: bold; text-align: center; margin-bottom: 6px; color: #333;">▢ IMPORTANTE</div>
@@ -204,7 +208,7 @@
             }
         };
 
-        document.getElementById('btn-terminar').onclick = function() {
+        document.getElementById('save_question_button').onclick = function() {
             if (confirm("¿Estás seguro de que deseas terminar el intento y enviar tus respuestas?")) {
                 calcularYMostrarNota();
             }
