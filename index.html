@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -142,29 +143,44 @@
     <script>
         const bancoPreguntas = [
             { 
-                pregunta: "¿Cuál es la principal función de los glóbulos rojos (eritrocitos) en la sangre?", 
-                opciones: ["Combate de infecciones", "Coagulación sanguínea", "Transporte de oxígeno", "Regulación de la temperatura"],
-                correcta: "Transporte de oxígeno" 
+                pregunta: "¿Cuál de los siguientes órganos es el principal responsable de filtrar la sangre y formar la orina?", 
+                opciones: ["Los riñones", "El hígado", "El corazón", "Los pulmones"],
+                correcta: "Los riñones" 
             },
             { 
-                pregunta: "¿Qué válvula cardíaca se encuentra comunicando la aurícula izquierda con el ventrículo izquierdo?", 
-                opciones: ["Válvula tricúspide", "Válvula mitral (bicúspide)", "Válvula aórtica", "Válvula pulmonar"],
-                correcta: "Válvula mitral (bicúspide)" 
+                pregunta: "En relación con la conducción eléctrica del corazón, ¿cuál de las siguientes afirmaciones diferencia correctamente al nodo auriculoventricular del nodo sinoauricular?", 
+                opciones: [
+                    "El nodo auriculoventricular retrasa la conducción hacia los ventrículos, mientras que el nodo sinoauricular inicia normalmente el impulso cardíaco.",
+                    "El nodo sinoauricular retrasa la conducción hacia los ventrículos, mientras que el nodo auriculoventricular inicia normalmente el impulso cardíaco.",
+                    "Ambos nodos tienen exactamente la misma función y solo se diferencian por su ubicación anatómica.",
+                    "El nodo auriculoventricular inicia normalmente el impulso cardíaco y el nodo sinoauricular únicamente lo transmite a los ventrículos."
+                ],
+                correcta: "El nodo auriculoventricular retrasa la conducción hacia los ventrículos, mientras que el nodo sinoauricular inicia normalmente el impulso cardíaco." 
             },
             { 
-                pregunta: "¿Cuál es la unidad funcional y estructural básica del riñón?", 
-                opciones: ["La neurona", "El nefrón", "El glomérulo", "El alvéolo"],
-                correcta: "El nefrón" 
+                pregunta: "¿Qué parte del cuerpo usamos para ver?", 
+                opciones: ["Los ojos", "Los oídos", "La nariz", "Las manos"],
+                correcta: "Los ojos" 
             },
             { 
-                pregunta: "¿En qué órgano humano se produce principalmente la insulina?", 
-                opciones: ["El hígado", "El páncreas", "El bazo", "Los riñones"],
-                correcta: "El páncreas" 
+                pregunta: "Una mujer de 58 años consulta por cansancio progresivo, sensación de falta de aire al subir escaleras y palpitaciones ocasionales. En los últimos meses ha notado además palidez de la piel y refiere una alimentación con poco consumo de carnes. El examen físico muestra conjuntivas pálidas, sin fiebre ni signos de infección. En el hemograma se encuentra disminución de la hemoglobina y del hematocrito, con eritrocitos pequeños y de menor contenido de hemoglobina. Considerando la información clínica y de laboratorio, ¿cuál de las siguientes alteraciones explica mejor el cuadro descrito?", 
+                opciones: [
+                    "Anemia ferropénica por disminución de los depósitos de hierro",
+                    "Anemia hemolítica por destrucción acelerada de eritrocitos",
+                    "Policitemia secundaria por aumento de la producción de eritrocitos",
+                    "Leucopenia por disminución del número de glóbulos blancos"
+                ],
+                correcta: "Anemia ferropénica por disminución de los depósitos de hierro" 
             },
             { 
-                pregunta: "¿Cómo se le denomina médicamente a la presión arterial elevada de forma crónica?", 
-                opciones: ["Hipotensión", "Taquicardia", "Hipertensión", "Bradicardia"],
-                correcta: "Hipertensión" 
+                pregunta: "Un hombre de 24 años llega a urgencias con dolor intenso en la parte inferior derecha del abdomen que comenzó alrededor del ombligo varias horas antes y posteriormente se desplazó hacia la fosa ilíaca derecha. Presenta náuseas, pérdida del apetito y fiebre de 38 °C. En la exploración física presenta dolor localizado en el punto de McBurney y defensa muscular. Los análisis muestran leucocitosis con neutrofilia. ¿Cuál es el diagnóstico más probable?", 
+                opciones: [
+                    "Apendicitis aguda",
+                    "Colecistitis aguda",
+                    "Gastritis aguda",
+                    "Cistitis aguda"
+                ],
+                correcta: "Apendicitis aguda" 
             }
         ];
 
@@ -195,7 +211,12 @@
             
             let contenedorOp = document.getElementById('contenedor-opciones');
             contenedorOp.innerHTML = '';
-            item.opciones.forEach((op) => {
+
+            // Copia de las alternativas y mezcla aleatoriamente su posición
+            let opcionesMezcladas = [...item.opciones];
+            opcionesMezcladas.sort(() => Math.random() - 0.5);
+
+            opcionesMezcladas.forEach((op) => {
                 let label = document.createElement('label');
                 let checked = (respuestasUsuario[preguntaActual] === op) ? 'checked' : '';
                 label.innerHTML = `<input type="radio" name="resp" value="${op}" ${checked} onclick="guardarRespuesta('${op}')"> ${op}`;
@@ -278,3 +299,4 @@
     </script>
 </body>
 </html>
+```
