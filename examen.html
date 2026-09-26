@@ -1168,46 +1168,35 @@ border-top: 10px solid #004231;
 
 const totalPreguntas = 5;
 
+const totalPreguntas = 5;
+
 /* =========================================
-   DETECTAR NUEVO INTENTO
+   NUEVO INTENTO
+   Si se entra desde "Dar intento", se borra
+   el progreso anterior y se comienza desde cero.
 ========================================= */
 
-const urlParams = new URLSearchParams(window.location.search);
-const nuevoIntento = urlParams.get("nuevo") === "1";
+const parametros = new URLSearchParams(window.location.search);
+const esNuevoIntento = parametros.get('nuevo') === '1';
 
-if (nuevoIntento) {
-    // Eliminar completamente el intento anterior
-    localStorage.removeItem("udabol_pregunta_actual");
-    localStorage.removeItem("udabol_respuestas");
+if (esNuevoIntento) {
+    localStorage.removeItem('udabol_pregunta_actual');
+    localStorage.removeItem('udabol_respuestas');
 
-    // Crear un nuevo examen desde cero
-    localStorage.setItem(
-        "udabol_pregunta_actual",
-        "0"
-    );
-
-    localStorage.setItem(
-        "udabol_respuestas",
-        JSON.stringify(new Array(totalPreguntas).fill(null))
-    );
-
-    // Quitar ?nuevo=1 de la dirección
-    window.history.replaceState(
-        {},
-        document.title,
-        window.location.pathname
-    );
+    // Limpiamos la URL para que una simple recarga
+    // no vuelva a crear otro intento automáticamente.
+    window.history.replaceState({}, document.title, window.location.pathname);
 }
 
 /* =========================================
-   CARGAR EL ESTADO ACTUAL
+   CARGAR ESTADO DEL EXAMEN
 ========================================= */
 
 let preguntaActual =
-    parseInt(localStorage.getItem("udabol_pregunta_actual")) || 0;
+    parseInt(localStorage.getItem('udabol_pregunta_actual')) || 0;
 
 let respuestasUsuario =
-    JSON.parse(localStorage.getItem("udabol_respuestas")) ||
+    JSON.parse(localStorage.getItem('udabol_respuestas')) ||
     new Array(totalPreguntas).fill(null);
 
         function renderizarGrid() {
