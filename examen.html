@@ -1179,7 +1179,9 @@ if (esNuevoIntento) {
 
     localStorage.removeItem('udabol_pregunta_actual');
     localStorage.removeItem('udabol_respuestas');
-    localStorage.removeItem('udabol_tiempo_restante');
+
+    // Nuevo intento = nuevo temporizador
+    localStorage.setItem('udabol_tiempo_restante', 30 * 60);
 
     window.history.replaceState(
         {},
