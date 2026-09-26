@@ -1262,10 +1262,21 @@ let respuestasUsuario =
         };
 
         document.getElementById('save_question_button').onclick = function() {
-            if (confirm("¿Estás seguro de que deseas terminar el intento y enviar tus respuestas?")) {
-                calcularYMostrarNota();
-            }
-        };
+
+    if (confirm("¿Estás seguro de que deseas terminar el intento y enviar tus respuestas?")) {
+
+        // Detener el temporizador
+        clearInterval(timer);
+
+        // Borrar todo el estado del examen
+        localStorage.removeItem('udabol_pregunta_actual');
+        localStorage.removeItem('udabol_respuestas');
+        localStorage.removeItem('udabol_tiempo_restante');
+
+        // Mostrar los resultados
+        calcularYMostrarNota();
+    }
+};
 
         function calcularYLogs() {
             // Placeholder
