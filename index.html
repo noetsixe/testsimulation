@@ -242,161 +242,103 @@ border-top: 10px solid #004231;
     border-radius: 3px;
 }
 /* =========================================
-   BREADCRUMB ACADÉMICO
+   BREADCRUMB ACADÉMICO (RÉPLICA EXACTA)
 ========================================= */
 
 .breadcrumb {
     width: calc(100% - 96px);
     max-width: 1260px;
     height: 32px;
-
     margin: 0 auto;
-
-    display: flex;
-    align-items: stretch;
-
-    background: #FFFFFF;
-
-    border: 1px solid #70B200;
-    border-radius: 2px;
-
-    overflow: hidden;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-}
-
-
-/* =========================================
-   NODOS
-========================================= */
-
-.breadcrumb-item {
-    height: 30px;
-
     display: flex;
     align-items: center;
-
-    white-space: nowrap;
-
-    position: relative;
-    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #70B200;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-
-/* =========================================
-   ICONOS
-========================================= */
+.breadcrumb-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    padding: 0 12px;
+}
 
 .breadcrumb-icon {
     width: 11px;
     height: 11px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     margin-right: 6px;
-
     font-size: 10px;
-    line-height: 11px;
-
-    flex-shrink: 0;
 }
 
-
-/* =========================================
-   NODO 1 — MATERIAS
-========================================= */
-
+/* NODO 1: MATERIAS */
 .breadcrumb-materias {
-    width: 123px;
-    padding-left: 16px;
-    padding-right: 26px;
-
-    color: #FFFFFF;
     background: #70B200;
+    color: #FFFFFF;
     font-weight: 600;
-
-    clip-path: polygon(
-        0 0,
-        calc(100% - 16px) 0,
-        100% 50%,
-        calc(100% - 16px) 100%,
-        0 100%
-    );
-
-    z-index: 3;
+    padding-left: 14px;
+    padding-right: 20px;
 }
-/* =========================================
-   NODO 2 — EXAMENES
-========================================= */
 
-.breadcrumb-examenes {
-    width: 142px;
-    margin-left: -16px;
-
-    padding-left: 27px;
-    padding-right: 32px;
-
-    color: #FFFFFF;
-    background: #70B200;
-    font-weight: 600;
-
-    clip-path: polygon(
-        16px 0,
-        calc(100% - 16px) 0,
-        100% 50%,
-        calc(100% - 16px) 100%,
-        16px 100%,
-        0 50%
-    );
-
+/* Separador inclinado en diagonal entre pestañas */
+.breadcrumb-materias::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 0 16px 12px;
+    border-color: transparent transparent transparent #ffffff;
     z-index: 2;
 }
 
-
-/* =========================================
-   NODO 3 — RUTA ACTUAL
-========================================= */
-
-.breadcrumb-current {
-    flex: 1;
-    min-width: 0;
-
-    margin-left: -10px;
-
-    padding-left: 25px;
-    padding-right: 15px;
-
-    color: #222222;
-    background: #FFFFFF;
-
-    font-weight: 400;
-
-    overflow: hidden;
-
-    clip-path: polygon(
-        15px 0,
-        100% 0,
-        100% 100%,
-        15px 100%,
-        0 50%
-    );
-
-    z-index: 1;
+/* NODO 2: EXAMENES */
+.breadcrumb-examenes {
+    background: #70B200;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
+.breadcrumb-examenes::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 0 16px 12px;
+    border-color: transparent transparent transparent #70B200;
+    z-index: 2;
+}
 
-/* =========================================
-   TEXTO DEL NODO ACTUAL
-========================================= */
+/* NODO 3: RUTA ACTUAL */
+.breadcrumb-current {
+    flex: 1;
+    background: #ffffff;
+    color: #222222;
+    font-weight: 400;
+    padding-left: 20px;
+    padding-right: 15px;
+    overflow: hidden;
+}
 
 .breadcrumb-current span:last-child {
     overflow: hidden;
-
     text-overflow: ellipsis;
-
     white-space: nowrap;
 }
 
