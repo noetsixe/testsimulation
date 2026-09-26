@@ -695,19 +695,15 @@ border-top: 10px solid #004231;
    TEMPORIZADOR
 ========================================= */
 
-.timer-box > span {
-    width: 12px;
-
-    font-size: 25px;
-    font-weight: bold;
-
-    line-height: 46px;
-
-    text-align: center;
-
-    color: #333333;
+.timer-box {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    margin: 0 0 15px 0;
 }
-
 
 /* =========================================
    DÍGITOS
@@ -716,6 +712,7 @@ border-top: 10px solid #004231;
 .digit {
     width: 42px;
     height: 46px;
+    flex: 0 0 42px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1057,6 +1054,7 @@ border-top: 10px solid #004231;
             <div class="digit" id="m2">0</div>
 
             <span class="timer-separator">:</span>
+            <span style="font-size: 25px; font-weight: bold; align-self: center;">:</span>
 
             <div class="digit" id="s1">0</div>
             <div class="digit" id="s2">0</div>
