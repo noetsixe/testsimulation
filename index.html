@@ -242,7 +242,7 @@ border-top: 10px solid #004231;
     border-radius: 3px;
 }
 /* =========================================
-   BREADCRUMB ACADÉMICO (RÉPLICA EXACTA UDABOL)
+   BREADCRUMB ACADÉMICO (RÉPLICA EXACTA)
 ========================================= */
 
 .breadcrumb {
@@ -254,18 +254,20 @@ border-top: 10px solid #004231;
     align-items: center;
     background: #ffffff;
     border: 1px solid #70b200;
-    border-radius: 4px;
+    border-radius: 3px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .breadcrumb-item {
-    height: 32px;
+    height: 100%;
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
     position: relative;
+    padding: 0 15px;
     box-sizing: border-box;
 }
 
@@ -284,10 +286,34 @@ border-top: 10px solid #004231;
     background: #70b200;
     color: #ffffff;
     font-weight: bold;
-    padding-left: 14px;
-    padding-right: 22px;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+    padding-right: 25px;
     z-index: 3;
+}
+
+/* Separador en flecha blanca entre Materias y Examenes */
+.breadcrumb-materias::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 12px solid #ffffff;
+}
+
+.breadcrumb-materias::before {
+    content: "";
+    position: absolute;
+    right: 1px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 12px solid #70b200;
+    z-index: 1;
 }
 
 /* NODO 2: EXAMENES */
@@ -295,12 +321,22 @@ border-top: 10px solid #004231;
     background: #70b200;
     color: #ffffff;
     font-weight: bold;
-    margin-left: -12px;
-    padding-left: 22px;
-    padding-right: 22px;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 50%);
-    border-left: 1px solid #ffffff;
+    padding-left: 20px;
+    padding-right: 25px;
     z-index: 2;
+}
+
+/* Separador en flecha verde al final de Examenes */
+.breadcrumb-examenes::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 12px solid #70b200;
 }
 
 /* NODO 3: RUTA ACTUAL */
@@ -309,11 +345,9 @@ border-top: 10px solid #004231;
     background: #ffffff;
     color: #222222;
     font-weight: normal;
-    margin-left: -12px;
-    padding-left: 22px;
+    padding-left: 20px;
     padding-right: 15px;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%);
     z-index: 1;
 }
 
