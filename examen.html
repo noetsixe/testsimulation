@@ -1164,9 +1164,36 @@ border-top: 10px solid #004231;
             }
         ];
 
-        let preguntaActual = parseInt(localStorage.getItem('udabol_pregunta_actual')) || 0;
         const totalPreguntas = 5;
-        let respuestasUsuario = JSON.parse(localStorage.getItem('udabol_respuestas')) || new Array(totalPreguntas).fill(null);
+
+/* =========================================
+   NUEVO INTENTO
+   Si se entra desde "Dar intento", se borra
+   el progreso anterior y se comienza desde cero.
+========================================= */
+
+const parametros = new URLSearchParams(window.location.search);
+const esNuevoIntento = parametros.get('nuevo') === '1';
+
+if (esNuevoIntento) {
+    localStorage.removeItem('udabol_pregunta_actual');
+    localStorage.removeItem('udabol_respuestas');
+
+    // Limpiamos la URL para que una simple recarga
+    // no vuelva a crear otro intento automáticamente.
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+
+/* =========================================
+   CARGAR ESTADO DEL EXAMEN
+========================================= */
+
+let preguntaActual =
+    parseInt(localStorage.getItem('udabol_pregunta_actual')) || 0;
+
+let respuestasUsuario =
+    JSON.parse(localStorage.getItem('udabol_respuestas')) ||
+    new Array(totalPreguntas).fill(null);
 
         function renderizarGrid() {
             const grid = document.getElementById('grid-preguntas');
