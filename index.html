@@ -258,7 +258,7 @@ border-top: 10px solid #004231;
     background: #FFFFFF;
 
     border: 1px solid #70B200;
-    border-radius: 4px;
+    border-radius: 2px;
 
     overflow: hidden;
 
@@ -289,12 +289,17 @@ border-top: 10px solid #004231;
 ========================================= */
 
 .breadcrumb-icon {
-    display: inline-block;
+    width: 11px;
+    height: 11px;
 
-    margin-right: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 6px;
 
     font-size: 10px;
-    line-height: 1;
+    line-height: 11px;
 
     flex-shrink: 0;
 }
@@ -306,13 +311,11 @@ border-top: 10px solid #004231;
 
 .breadcrumb-materias {
     width: 123px;
-
     padding-left: 16px;
-    padding-right: 22px;
+    padding-right: 26px;
 
     color: #FFFFFF;
     background: #70B200;
-
     font-weight: 600;
 
     clip-path: polygon(
@@ -325,31 +328,27 @@ border-top: 10px solid #004231;
 
     z-index: 3;
 }
-
-
 /* =========================================
    NODO 2 — EXAMENES
 ========================================= */
 
 .breadcrumb-examenes {
-    width: 132px;
-
-    margin-left: -15px;
+    width: 142px;
+    margin-left: -16px;
 
     padding-left: 27px;
-    padding-right: 22px;
+    padding-right: 32px;
 
     color: #FFFFFF;
     background: #70B200;
-
     font-weight: 600;
 
     clip-path: polygon(
-        15px 0,
+        16px 0,
         calc(100% - 16px) 0,
         100% 50%,
         calc(100% - 16px) 100%,
-        15px 100%,
+        16px 100%,
         0 50%
     );
 
@@ -811,7 +810,7 @@ border-top: 10px solid #004231;
 
     <div class="breadcrumb-item breadcrumb-examenes">
         <span class="breadcrumb-icon">□</span>
-        <span>Examenes</span>
+        <span>Exámenes</span>
     </div>
 
     <div class="breadcrumb-item breadcrumb-current">
