@@ -1176,12 +1176,16 @@ const parametros = new URLSearchParams(window.location.search);
 const esNuevoIntento = parametros.get('nuevo') === '1';
 
 if (esNuevoIntento) {
+
     localStorage.removeItem('udabol_pregunta_actual');
     localStorage.removeItem('udabol_respuestas');
+    localStorage.removeItem('udabol_tiempo_restante');
 
-    // Limpiamos la URL para que una simple recarga
-    // no vuelva a crear otro intento automáticamente.
-    window.history.replaceState({}, document.title, window.location.pathname);
+    window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+    );
 }
 
 /* =========================================
@@ -1283,24 +1287,59 @@ let respuestasUsuario =
             document.getElementById('detalle-respuestas').innerText = `Acertaste ${aciertos} de ${totalPreguntas} preguntas correctamente.`;
         }
 
-        let segundosTotales = 30 * 60;
-        let timer = setInterval(() => {
-            if (segundosTotales > 0) {
-                segundosTotales--;
-            } else {
-                clearInterval(timer);
-                alert("¡El tiempo ha terminado!");
-                calcularYMostrarNota();
-            }
-            let m = Math.floor(segundosTotales / 60);
-            let s = segundosTotales % 60;
-            let mStr = String(m).padStart(2, '0');
-            let sStr = String(s).padStart(2, '0');
-            document.getElementById('m1').innerText = mStr[0];
-            document.getElementById('m2').innerText = mStr[1];
-            document.getElementById('s1').innerText = sStr[0];
-            document.getElementById('s2').innerText = sStr[1];
-        }, 1000);
+        /* =========================================
+   TEMPORIZADOR
+========================================= */
+
+let segundosTotales = parseInt(
+    localStorage.getItem('udabol_tiempo_restante')
+);
+
+if (isNaN(segundosTotales)) {
+    segundosTotales = 30 * 60;
+    localStorage.setItem('udabol_tiempo_restante', segundosTotales);
+}
+
+function actualizarTemporizador() {
+    let m = Math.floor(segundosTotales / 60);
+    let s = segundosTotales % 60;
+
+    let mStr = String(m).padStart(2, '0');
+    let sStr = String(s).padStart(2, '0');
+
+    document.getElementById('m1').innerText = mStr[0];
+    document.getElementById('m2').innerText = mStr[1];
+    document.getElementById('s1').innerText = sStr[0];
+    document.getElementById('s2').innerText = sStr[1];
+}
+
+actualizarTemporizador();
+
+let timer = setInterval(() => {
+
+    if (segundosTotales > 0) {
+
+        segundosTotales--;
+
+        localStorage.setItem(
+            'udabol_tiempo_restante',
+            segundosTotales
+        );
+
+        actualizarTemporizador();
+
+    } else {
+
+        clearInterval(timer);
+
+        localStorage.removeItem('udabol_tiempo_restante');
+
+        alert("¡El tiempo ha terminado!");
+
+        calcularYMostrarNota();
+    }
+
+}, 1000);
 
         cargarPregunta();
     </script>
