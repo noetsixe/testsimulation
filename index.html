@@ -584,81 +584,295 @@ border-top: 10px solid #004231;
 
 
     /* =========================================
-       PANEL DERECHO
-    ========================================= */
+   PANEL DERECHO GENERAL
+========================================= */
 
-    .sidebar-right {
-        width: 280px;
+.sidebar-right {
+    width: 280px;
+    flex-shrink: 0;
 
-        flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
 
-        background: white;
+    gap: 14px;
 
-        padding: 15px;
+    background: transparent;
 
-        border: 1px solid #dddddd;
+    padding: 0;
 
-        border-radius: 4px;
+    border: none;
 
-        height: fit-content;
-    }
+    border-radius: 0;
+
+    height: fit-content;
+}
 
 
-    /* =========================================
-       TEMPORIZADOR
-    ========================================= */
+/* =========================================
+   TARJETAS DEL PANEL DERECHO
+========================================= */
 
-    .timer-box {
-        display: flex;
+.right-card {
+    width: 100%;
 
-        justify-content: center;
+    background: #ffffff;
 
-        gap: 4px;
+    border: 1px solid #e5e5e5;
 
-        margin: 10px 0 15px 0;
-    }
+    border-radius: 6px;
 
-    .digit {
-        background: #222;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 
-        color: white;
+    padding: 15px;
+}
 
-        padding: 6px 10px;
 
-        font-size: 20px;
+/* =========================================
+   TÍTULOS
+========================================= */
 
-        font-weight: bold;
+.right-card-title {
+    display: flex;
 
-        border-radius: 3px;
+    align-items: center;
+    justify-content: center;
 
-        box-shadow:
-            inset 0 2px 4px rgba(0,0,0,0.5),
-            0 1px 2px rgba(0,0,0,0.25);
-    }
+    gap: 6px;
 
-    .btn-terminar {
-        width: 100%;
+    padding-bottom: 9px;
 
-        background-color: #337ab7;
+    margin-bottom: 10px;
 
-        color: white;
+    border-bottom: 1px solid #dddddd;
 
-        border: none;
+    color: #2d3748;
 
-        padding: 9px;
+    font-size: 12px;
 
-        border-radius: 3px;
+    font-weight: bold;
 
-        font-weight: bold;
+    line-height: 1;
+}
 
-        cursor: pointer;
+.right-card-icon {
+    font-size: 14px;
 
-        font-size: 13px;
-    }
+    line-height: 1;
 
-    .btn-terminar:hover {
-        background-color: #286090;
-    }
+    color: #444444;
+}
+
+
+/* =========================================
+   ETIQUETAS DEL TEMPORIZADOR
+========================================= */
+
+.timer-labels {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    margin-bottom: 5px;
+
+    color: #666666;
+
+    font-size: 10px;
+
+    line-height: 14px;
+
+    text-align: center;
+}
+
+.timer-labels span {
+    width: 48px;
+}
+
+
+/* =========================================
+   TEMPORIZADOR
+========================================= */
+
+.timer-box {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    margin: 0;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   DÍGITOS
+========================================= */
+
+.digit {
+    width: 36px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #222222;
+
+    color: #ffffff;
+
+    border-radius: 5px;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.55),
+        0 2px 3px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================
+   DOS PUNTOS
+========================================= */
+
+.timer-separator {
+    width: 10px;
+
+    color: #333333;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 40px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   TARJETA DE ACCIÓN
+========================================= */
+
+.action-card {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+}
+
+
+/* =========================================
+   BOTÓN TERMINAR
+========================================= */
+
+.btn-terminar {
+    width: 100%;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #3182ce;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+}
+
+.btn-terminar:hover {
+    background: #2869a8;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+.btn-terminar:active {
+    transform: translateY(1px);
+}
+
+.button-icon {
+    font-size: 14px;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   TARJETA IMPORTANTE
+========================================= */
+
+.important-card {
+    padding: 15px;
+}
+
+.important-title {
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   LISTA DE INSTRUCCIONES
+========================================= */
+
+.important-card ol {
+    margin: 0;
+
+    padding-left: 18px;
+
+    color: #444444;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.important-card li {
+    padding-left: 2px;
+
+    margin-bottom: 7px;
+}
+
+.important-card li:last-child {
+    margin-bottom: 0;
+}
+
+.important-card strong {
+    color: #333333;
+}
 
 
     /* =========================================
@@ -829,30 +1043,81 @@ border-top: 10px solid #004231;
             </div>
         </div>
 
-        <!-- Panel Derecho -->
-        <div class="sidebar-right">
-            <div class="titulo-seccion">▢ TIEMPO RESTANTE</div>
-            <div style="text-align: center; font-size: 11px; color: #666; margin-top: 5px;">Minutos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segundos</div>
-            <div class="timer-box">
-                <div class="digit" id="m1">3</div>
-                <div class="digit" id="m2">0</div>
-                <span style="font-size: 20px; font-weight: bold; align-self: center;">:</span>
-                <div class="digit" id="s1">0</div>
-                <div class="digit" id="s2">0</div>
-            </div>
-            <!-- Botón con ID #save_question_button que activa el inicio del userscript -->
-            <button class="btn-terminar" id="save_question_button">▢ Terminar intento</button>
-            
-            <div style="border-top: 1px solid #dcdcdc; margin-top: 15px; padding-top: 10px;">
-                <div style="font-size: 12px; font-weight: bold; text-align: center; margin-bottom: 6px; color: #333;">▢ IMPORTANTE</div>
-                <ol style="font-size: 10px; color: #444; padding-left: 15px; line-height: 1.4; margin: 0;">
-                    <li>El examen consta de 5 preguntas de medicina (20 puntos c/u).</li>
-                    <li>Al terminar de contestar, presione el botón 'Terminar intento'.</li>
-                    <li>Se mostrará automáticamente la calificación obtenida sobre 100.</li>
-                </ol>
-            </div>
+        <!-- PANEL DERECHO -->
+<div class="sidebar-right">
+
+    <!-- =========================================
+         1. CRONÓMETRO
+    ========================================== -->
+    <div class="right-card timer-card">
+
+        <div class="right-card-title">
+            <span class="right-card-icon">◷</span>
+            <span>TIEMPO RESTANTE</span>
         </div>
+
+        <div class="timer-labels">
+            <span>Minutos</span>
+            <span>Segundos</span>
+        </div>
+
+        <div class="timer-box">
+
+            <div class="digit" id="m1">3</div>
+            <div class="digit" id="m2">0</div>
+
+            <span class="timer-separator">:</span>
+
+            <div class="digit" id="s1">0</div>
+            <div class="digit" id="s2">0</div>
+
+        </div>
+
     </div>
+
+
+    <!-- =========================================
+         2. ACCIÓN PRINCIPAL
+    ========================================== -->
+    <div class="right-card action-card">
+
+        <button class="btn-terminar" id="save_question_button">
+            <span class="button-icon">✓</span>
+            <span>Terminar intento</span>
+        </button>
+
+    </div>
+
+
+    <!-- =========================================
+         3. IMPORTANTE
+    ========================================== -->
+    <div class="right-card important-card">
+
+        <div class="right-card-title important-title">
+            <span class="right-card-icon">ⓘ</span>
+            <span>IMPORTANTE</span>
+        </div>
+
+        <ol>
+            <li>
+                Todas las respuestas deben ser guardadas.
+                Las preguntas ya respondidas se marcan de color verde.
+            </li>
+
+            <li>
+                Al terminar de contestar todas las preguntas debe presionar
+                el botón <strong>'Terminar intento'</strong>.
+            </li>
+
+            <li>
+                Una vez termine el intento se mostrará la calificación obtenida.
+            </li>
+        </ol>
+
+    </div>
+
+</div>
 
     <script>
         const bancoPreguntas = [
