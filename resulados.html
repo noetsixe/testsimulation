@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpeta Pedagógica Digital - UDABOL</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <!-- Cabecera Institucional -->
+    <header class="bg-[#0b4d32] text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo y Título -->
+            <div class="flex items-center space-x-3 mb-2 md:mb-0">
+                <span class="text-xl font-bold tracking-wider">UDABOL</span>
+                <span class="text-xs uppercase tracking-widest border-l border-emerald-600 pl-3">Carpeta Pedagógica Digital</span>
+            </div>
+            <!-- Datos del Usuario y Sesión -->
+            <div class="flex items-center space-x-4 text-sm">
+                <div class="text-right">
+                    <p class="font-semibold">LUCIANA BELEN VILLANUEVA SULCA</p>
+                    <a href="#" class="text-xs text-emerald-200 hover:underline flex items-center justify-end gap-1">
+                        <i class="fa-solid fa-power-off"></i> CERRAR SESION
+                    </a>
+                </div>
+                <div class="bg-white text-[#0b4d32] rounded-full p-2 w-10 h-10 flex items-center justify-center font-bold shadow">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Barra de estado secundaria -->
+        <div class="bg-[#126b48] px-4 py-1.5 text-xs text-emerald-100 flex justify-between items-center max-w-7xl mx-auto">
+            <span>Usuario de carpeta pedagógica: virtual.udabol.edu.bo</span>
+            <div>
+                <label for="idioma" class="mr-1">Seleccionar idioma</label>
+                <select id="idioma" class="bg-white text-gray-800 rounded px-1 py-0.5 text-xs outline-none">
+                    <option>Español</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        
+        <!-- Pestañas de Navegación -->
+        <div class="flex space-x-2 mb-6 border-b border-gray-300 pb-2">
+            <button class="px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-t-md hover:bg-gray-50">
+                Materias
+            </button>
+            <button class="px-4 py-2 text-sm font-semibold text-white bg-[#6db82d] rounded-t-md flex items-center gap-2 shadow">
+                <i class="fa-solid fa-file-lines"></i> Exámenes
+            </button>
+        </div>
+
+        <!-- Subtítulo de Sección -->
+        <div class="mb-4 text-sm font-medium text-gray-700">
+            2026-2-2026-10190605: Examen Primer Parcial
+        </div>
+
+        <!-- Contenedor de la Tabla -->
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg border border-gray-200">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+                <thead>
+                    <!-- Fila Superior de Agrupación -->
+                    <tr class="bg-gray-100 text-gray-700 text-center border-b border-gray-300">
+                        <th rowspan="2" class="p-3 border-r border-gray-300 font-semibold">EXAMEN<br><span class="text-xs font-normal">MATERIA</span></th>
+                        <th colspan="2" class="p-2 border-r border-gray-300 font-semibold">ESTUDIANTE</th>
+                        <th colspan="2" class="p-2 border-r border-gray-300 font-semibold">TIEMPO</th>
+                        <th colspan="4" class="p-2 border-r border-gray-300 font-semibold">PREGUNTAS</th>
+                        <th colspan="2" class="font-semibold">NOTA</th>
+                    </tr>
+                    <!-- Fila Inferior de Columnas -->
+                    <tr class="bg-gray-50 text-gray-600 text-center border-b border-gray-300">
+                        <th class="p-2 border-r border-gray-300">NOMBRE COMPLETO</th>
+                        <th class="p-2 border-r border-gray-300">CÓDIGO</th>
+                        <th class="p-2 border-r border-gray-300">INICIO</th>
+                        <th class="p-2 border-r border-gray-300">FIN</th>
+                        <th class="p-2 border-r border-gray-300">CANTIDAD</th>
+                        <th class="p-2 border-r border-gray-300">RESPONDIDAS</th>
+                        <th class="p-2 border-r border-gray-300">SIN RESPONDER</th>
+                        <th class="p-2 border-r border-gray-300">CORRECTAS</th>
+                        <th class="p-2 border-r border-gray-300">OBTENIDA</th>
+                        <th class="p-2 bg-emerald-100 text-[#0b4d32] font-bold">FINAL</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 text-center">
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 border-r border-gray-200 font-medium text-[#0b4d32]">
+                            Neurología y neurocirugía - NM
+                        </td>
+                        <td class="p-3 border-r border-gray-200 uppercase text-left">
+                            Villanueva Sulca Luciana Belen
+                        </td>
+                        <td class="p-3 border-r border-gray-200 font-mono">94154</td>
+                        <td class="p-3 border-r border-gray-200 text-gray-600 whitespace-nowrap">2026-09-16<br>15:16:02</td>
+                        <td class="p-3 border-r border-gray-200 text-gray-600 whitespace-nowrap">2026-09-16<br>15:42:19</td>
+                        <td class="p-3 border-r border-gray-200">20</td>
+                        <td class="p-3 border-r border-gray-200">20</td>
+                        <td class="p-3 border-r border-gray-200">0</td>
+                        <td class="p-3 border-r border-gray-200 font-semibold text-green-600">14</td>
+                        <td class="p-3 border-r border-gray-200 font-medium">70 / 100</td>
+                        <td class="p-3 bg-[#6db82d] text-white font-bold text-base">
+                            42 / 60
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botón de Acción inferior -->
+        <div class="mt-6">
+            <button class="bg-[#6db82d] hover:bg-emerald-600 text-white font-semibold px-5 py-2.5 rounded shadow flex items-center gap-2 text-sm transition">
+                <i class="fa-solid fa-check"></i> Continuar
+            </button>
+        </div>
+
+    </main>
+
+</body>
+</html>
