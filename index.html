@@ -259,7 +259,7 @@ border-top: 10px solid #004231;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .breadcrumb-item {
@@ -300,26 +300,27 @@ border-top: 10px solid #004231;
 .breadcrumb-materias::after {
     content: "";
     position: absolute;
-    right: -18px;
+    right: -10px;
+    top: 0;
     width: 0;
     height: 0;
-   top: 0%;
-transform: translateY(-50%);
-border-top: 14px solid transparent;
-border-bottom: 14px solid transparent;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 10px solid #f5f5f5;
+    z-index: 10;
 }
 
 .breadcrumb-materias::before {
     content: "";
     position: absolute;
     right: -8px;
+    top: 0;
     width: 0;
     height: 0;
-    top: 0%;
-transform: translateY(-50%);
-border-top: 14px solid transparent;
-border-bottom: 14px solid transparent;
-    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 10px solid #70b200;
+    z-index: 11;
 }
 
 /* NODO 2: EXAMENES */
@@ -338,12 +339,13 @@ border-bottom: 14px solid transparent;
     content: "";
     position: absolute;
     right: -10px;
+    top: 0;
     width: 0;
     height: 0;
-    top: 0%;
-transform: translateY(-50%);
-border-top: 14px solid transparent;
-border-bottom: 14px solid transparent;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 10px solid #70b200;
+    z-index: 10;
 }
 
 /* NODO 3: RUTA ACTUAL */
