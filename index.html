@@ -264,11 +264,12 @@ border-top: 10px solid #004231;
     overflow: hidden;
 
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
 }
 
 
 /* =========================================
-   ELEMENTOS VERDES
+   NODOS
 ========================================= */
 
 .breadcrumb-item {
@@ -277,33 +278,34 @@ border-top: 10px solid #004231;
     display: flex;
     align-items: center;
 
-    font-size: 13px;
-    font-weight: 600;
-
     white-space: nowrap;
 
     position: relative;
+
+    font-size: 13px;
 }
 
 
 /* =========================================
-   PRIMER NODO — MATERIAS
+   MATERIAS
 ========================================= */
 
 .breadcrumb-green.first {
-    width: 112px;
+    width: 123px;
 
-    padding-left: 16px;
-    padding-right: 25px;
+    padding-left: 17px;
+    padding-right: 24px;
 
-    color: #FFFFFF;
+    color: #ffffff;
     background: #70B200;
+
+    font-weight: 600;
 
     clip-path: polygon(
         0 0,
-        calc(100% - 18px) 0,
+        calc(100% - 16px) 0,
         100% 50%,
-        calc(100% - 18px) 100%,
+        calc(100% - 16px) 100%,
         0 100%
     );
 
@@ -312,26 +314,28 @@ border-top: 10px solid #004231;
 
 
 /* =========================================
-   SEGUNDO NODO — EXAMENES
+   EXAMENES
 ========================================= */
 
 .breadcrumb-green.middle {
-    width: 125px;
+    width: 132px;
 
-    margin-left: -12px;
+    margin-left: -15px;
 
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 27px;
+    padding-right: 24px;
 
-    color: #FFFFFF;
+    color: #ffffff;
     background: #70B200;
 
+    font-weight: 600;
+
     clip-path: polygon(
-        12px 0,
-        calc(100% - 18px) 0,
+        15px 0,
+        calc(100% - 16px) 0,
         100% 50%,
-        calc(100% - 18px) 100%,
-        12px 100%,
+        calc(100% - 16px) 100%,
+        15px 100%,
         0 50%
     );
 
@@ -340,7 +344,7 @@ border-top: 10px solid #004231;
 
 
 /* =========================================
-   LÍNEAS DIAGONALES DE LOS CHEVRONS
+   SEPARADORES BLANCOS
 ========================================= */
 
 .breadcrumb-green.first::after,
@@ -350,14 +354,14 @@ border-top: 10px solid #004231;
     position: absolute;
 
     top: 0;
-    right: 17px;
+    right: 15px;
 
     width: 1px;
     height: 33px;
 
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
 
-    transform: rotate(-32deg);
+    transform: rotate(-31deg);
 
     transform-origin: center;
 }
@@ -371,6 +375,7 @@ border-top: 10px solid #004231;
     margin-right: 5px;
 
     font-size: 10px;
+
     line-height: 1;
 
     color: inherit;
@@ -380,36 +385,40 @@ border-top: 10px solid #004231;
 
 
 /* =========================================
-   NODO FINAL — PÁGINA ACTUAL
+   PÁGINA ACTUAL
 ========================================= */
 
 .breadcrumb-current {
     flex: 1;
     min-width: 0;
 
-    margin-left: -8px;
+    margin-left: -10px;
 
-    padding: 0 15px 0 23px;
+    padding: 0 15px 0 24px;
+
+    background: #ffffff;
 
     color: #222222;
 
-    background: #FFFFFF;
-
     font-weight: 400;
+
+    display: flex;
+    align-items: center;
 
     z-index: 1;
 
     overflow: hidden;
 }
 
+
+/* ICONO DEL NODO ACTUAL */
+
 .breadcrumb-current .breadcrumb-icon {
     color: #222222;
 }
 
 
-/* =========================================
-   TEXTO FINAL
-========================================= */
+/* TEXTO DEL NODO ACTUAL */
 
 .breadcrumb-current span:last-child {
     overflow: hidden;
