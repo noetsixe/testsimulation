@@ -59,19 +59,18 @@
 
 
     /* =========================================
-       BARRA SUPERIOR
-    ========================================= */
+   BARRA SUPERIOR — TOP UTILITY BAR
+========================================= */
 
-    .header-top {
+.header-top {
     width: 100%;
     height: 37px;
 
-    background: #ffc000;
-    border-top: 10px solid #003300;
-
+    margin: 0;
     padding: 0 7px;
 
-    margin: 0;
+    background: #ffc000;
+    border-top: 10px solid #003300;
 
     display: flex;
     align-items: center;
@@ -79,7 +78,6 @@
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    font-weight: bold;
 
     color: #222;
 
@@ -87,31 +85,41 @@
 }
 
 
-/* ==============================
-   IZQUIERDA
-============================== */
+/* =========================================
+   SOPORTE — LADO IZQUIERDO
+========================================= */
 
 .support-info {
+    height: 27px;
+
     display: flex;
     align-items: center;
 
-    height: 27px;
-
     white-space: nowrap;
+
+    font-weight: bold;
 }
 
 .support-icon {
-    display: inline-block;
+    width: 10px;
+    height: 10px;
 
     margin-right: 3px;
 
-    font-size: 11px;
-    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 9px;
+    line-height: 9px;
 }
 
 .support-info a {
     color: #222;
+
     text-decoration: none;
+
+    font-weight: bold;
 }
 
 .support-info a:hover {
@@ -119,24 +127,24 @@
 }
 
 
-/* ==============================
-   IDIOMAS
-============================== */
+/* =========================================
+   IDIOMAS — LADO DERECHO
+========================================= */
 
 .language-area {
+    height: 27px;
+
     display: flex;
     align-items: center;
-
-    height: 27px;
 
     white-space: nowrap;
 }
 
 .language-item {
+    height: 27px;
+
     display: flex;
     align-items: center;
-
-    height: 27px;
 
     margin-left: 14px;
 
@@ -144,18 +152,22 @@
 }
 
 .language-item .separator {
-    margin-left: 8px;
+    margin-left: 7px;
     margin-right: 6px;
+
+    color: #555;
 }
 
 .language-item .arrow {
     font-size: 10px;
+
     color: #777;
+
+    line-height: 1;
 
     position: relative;
     top: -1px;
 }
-
 
 /* QUITAMOS EL SELECT NATIVO */
 
@@ -635,12 +647,36 @@
     <div id="barra-carga"></div>
 
     <div class="header-top">
-        <span>Consultas de carpeta pedagógica: virtual@udabol.edu.bo</span>
-        <div>
-            <span>Seleccionar idioma</span>
-            <select><option>Español</option></select>
-        </div>
+
+    <div class="support-info">
+        <span class="support-icon">□</span>
+
+        <span>
+            Consultas de carpeta pedagógica:
+            <a href="mailto:virtual@udabol.edu.bo">
+                virtual@udabol.edu.bo
+            </a>
+        </span>
     </div>
+
+
+    <div class="language-area">
+
+        <div class="language-item">
+            <span>Seleccionar idioma</span>
+            <span class="separator">|</span>
+            <span class="arrow">▼</span>
+        </div>
+
+        <div class="language-item">
+            <span>Seleccionar idioma</span>
+            <span class="separator">|</span>
+            <span class="arrow">▼</span>
+        </div>
+
+    </div>
+
+</div>
 
     <div class="nav-bar">
         <div class="tab-green">▢ Materias</div>
