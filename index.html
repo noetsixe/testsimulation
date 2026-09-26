@@ -242,24 +242,20 @@ border-top: 10px solid #004231;
     border-radius: 3px;
 }
 /* =========================================
-   BREADCRUMB — ARROW STYLE
+   BREADCRUMB ACADÉMICO
 ========================================= */
 
-.nav-bar {
-    width: calc(100% - 96px);
-    max-width: 1260px;
-    height: 35px;
-
-    margin: 0 auto;
-    padding: 0;
-
-    background: #ffffff;
-
-    border: 1px solid #70B200;
-    border-radius: 4px;
+.breadcrumb {
+    width: 100%;
+    height: 32px;
 
     display: flex;
     align-items: stretch;
+
+    background: #FFFFFF;
+
+    border: 1px solid #70B200;
+    border-radius: 4px;
 
     overflow: hidden;
 
@@ -273,7 +269,7 @@ border-top: 10px solid #004231;
 ========================================= */
 
 .breadcrumb-item {
-    height: 33px;
+    height: 30px;
 
     display: flex;
     align-items: center;
@@ -282,21 +278,37 @@ border-top: 10px solid #004231;
 
     position: relative;
 
-    font-size: 13px;
+    flex-shrink: 0;
 }
 
 
 /* =========================================
-   MATERIAS
+   ICONOS
 ========================================= */
 
-.breadcrumb-green.first {
+.breadcrumb-icon {
+    display: inline-block;
+
+    margin-right: 5px;
+
+    font-size: 10px;
+    line-height: 1;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   NODO 1 — MATERIAS
+========================================= */
+
+.breadcrumb-materias {
     width: 123px;
 
-    padding-left: 17px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 22px;
 
-    color: #ffffff;
+    color: #FFFFFF;
     background: #70B200;
 
     font-weight: 600;
@@ -314,18 +326,18 @@ border-top: 10px solid #004231;
 
 
 /* =========================================
-   EXAMENES
+   NODO 2 — EXAMENES
 ========================================= */
 
-.breadcrumb-green.middle {
+.breadcrumb-examenes {
     width: 132px;
 
     margin-left: -15px;
 
     padding-left: 27px;
-    padding-right: 24px;
+    padding-right: 22px;
 
-    color: #ffffff;
+    color: #FFFFFF;
     background: #70B200;
 
     font-weight: 600;
@@ -344,48 +356,7 @@ border-top: 10px solid #004231;
 
 
 /* =========================================
-   SEPARADORES BLANCOS
-========================================= */
-
-.breadcrumb-green.first::after,
-.breadcrumb-green.middle::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    right: 15px;
-
-    width: 1px;
-    height: 33px;
-
-    background: rgba(255, 255, 255, 0.85);
-
-    transform: rotate(-31deg);
-
-    transform-origin: center;
-}
-
-
-/* =========================================
-   ICONOS
-========================================= */
-
-.breadcrumb-icon {
-    margin-right: 5px;
-
-    font-size: 10px;
-
-    line-height: 1;
-
-    color: inherit;
-
-    flex-shrink: 0;
-}
-
-
-/* =========================================
-   PÁGINA ACTUAL
+   NODO 3 — RUTA ACTUAL
 ========================================= */
 
 .breadcrumb-current {
@@ -394,31 +365,31 @@ border-top: 10px solid #004231;
 
     margin-left: -10px;
 
-    padding: 0 15px 0 24px;
-
-    background: #ffffff;
+    padding-left: 25px;
+    padding-right: 15px;
 
     color: #222222;
+    background: #FFFFFF;
 
     font-weight: 400;
 
-    display: flex;
-    align-items: center;
+    overflow: hidden;
+
+    clip-path: polygon(
+        15px 0,
+        100% 0,
+        100% 100%,
+        15px 100%,
+        0 50%
+    );
 
     z-index: 1;
-
-    overflow: hidden;
 }
 
 
-/* ICONO DEL NODO ACTUAL */
-
-.breadcrumb-current .breadcrumb-icon {
-    color: #222222;
-}
-
-
-/* TEXTO DEL NODO ACTUAL */
+/* =========================================
+   TEXTO DEL NODO ACTUAL
+========================================= */
 
 .breadcrumb-current span:last-child {
     overflow: hidden;
@@ -831,12 +802,12 @@ border-top: 10px solid #004231;
 
     <div class="nav-bar">
 
-    <div class="breadcrumb-item breadcrumb-green first">
+    <div class="breadcrumb-item breadcrumb-materias">
         <span class="breadcrumb-icon">□</span>
         <span>Materias</span>
     </div>
 
-    <div class="breadcrumb-item breadcrumb-green middle">
+    <div class="breadcrumb-item breadcrumb-examenes">
         <span class="breadcrumb-icon">□</span>
         <span>Examenes</span>
     </div>
