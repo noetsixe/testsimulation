@@ -8,52 +8,507 @@
     <title>Carpeta Pedagogica Digital</title>
     <link rel="shortcut icon" href="https://virtual.udabol.edu.bo/carpetaverde/estudiante/../images/favicon.ico" />
     <style>
-        body { background: #FFF; font-family: 'Open Sans', sans-serif; font-size: 14px; height: 100%; margin: 0; padding: 0; color: #333; }
-        
-        /* Barra de carga superior estilo Udabol */
-        #barra-carga { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: #88b71d; display: none; z-index: 9999; animation: cargando 0.8s infinite; }
-        @keyframes cargando { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
 
-        /* Barra superior amarilla */
-        .header-top { background-color: #ffcc00; padding: 6px 15px; font-size: 12px; font-weight: bold; color: #000; display: flex; justify-content: space-between; align-items: center; }
-        .header-top select { border: 1px solid #ccc; background: #fff; font-size: 11px; padding: 2px 5px; border-radius: 2px; margin-left: 10px; }
+    * {
+        box-sizing: border-box;
+    }
 
-        /* Barra de navegación de pestañas */
-        .nav-bar { background-color: #f5f5f5; padding: 8px 15px; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 5px; }
-        .tab-green { background-color: #88b71d; color: white; padding: 6px 15px; font-size: 13px; font-weight: bold; display: flex; align-items: center; gap: 5px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); margin-right: 2px; }
-        .tab-exam-title { background: white; border: 1px solid #ccc; padding: 6px 15px; font-size: 13px; font-weight: bold; color: #333; flex: 1; border-radius: 2px; }
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
 
-        .container-examen { display: flex; max-width: 1250px; margin: 20px auto; gap: 20px; padding: 0 10px; }
-        
-        /* Panel Izquierdo */
-        .sidebar-left { width: 230px; background: white; padding: 15px; border: 1px solid #dcdcdc; border-radius: 4px; height: fit-content; }
-        .titulo-seccion { font-size: 12px; font-weight: bold; text-align: center; border-bottom: 1px solid #dcdcdc; padding-bottom: 6px; margin-bottom: 10px; color: #333; display: flex; justify-content: center; align-items: center; gap: 5px; }
-        .grid-preguntas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 15px; }
-        .btn-preg { width: 32px; height: 32px; border: 1px solid #ccc; background: white; text-align: center; line-height: 32px; font-size: 12px; cursor: pointer; border-radius: 2px; }
-        .btn-preg.active { border: 2px solid #333; font-weight: bold; }
-        .btn-preg.answered { background-color: #6bb122; color: white; border: none; }
-        
-        /* Contenido Central con ID #content exigido por config.testContainerSelector */
-        .main-content { flex: 1; background: white; padding: 25px; border: 1px solid #dcdcdc; border-radius: 4px; position: relative; min-height: 380px; }
-        .main-content h3 { margin-top: 0; color: #222; font-size: 17px; font-weight: bold; text-align: center; }
-        .sub-titulo { color: #444; font-size: 13px; font-weight: bold; text-align: center; margin-bottom: 20px; }
-        
-        /* Estilos alineados al userscript */
-        .opciones label { display: block; margin: 12px 0; font-size: 14px; cursor: pointer; color: #222; }
-        
-        .btn-siguiente { background-color: #88b71d; color: white; border: none; padding: 8px 25px; font-size: 13px; border-radius: 3px; cursor: pointer; display: block; margin: 40px auto 10px auto; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+    body {
+        background: #eeeeee;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #222;
+    }
 
-        /* Panel Derecho */
-        .sidebar-right { width: 260px; background: white; padding: 15px; border: 1px solid #dcdcdc; border-radius: 4px; height: fit-content; }
-        .timer-box { display: flex; justify-content: center; gap: 4px; margin: 10px 0 15px 0; }
-        .digit { background: #222; color: white; padding: 6px 10px; font-size: 20px; font-weight: bold; border-radius: 3px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
-        .btn-terminar { width: 100%; background-color: #337ab7; color: white; border: none; padding: 8px; border-radius: 3px; font-weight: bold; cursor: pointer; font-size: 13px; }
-        .btn-terminar:hover { background-color: #286090; }
 
-        /* Pantalla de Resultados */
-        #pantalla-resultados { display: none; text-align: center; padding: 40px 20px; }
-        #pantalla-resultados h2 { color: #333; margin-bottom: 10px; }
-        .calificacion-box { font-size: 40px; font-weight: bold; color: #6bb122; margin: 20px 0; }
+    /* =========================================
+       BARRA DE CARGA
+    ========================================= */
+
+    #barra-carga {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #88b71d;
+        display: none;
+        z-index: 9999;
+        animation: cargando 0.8s infinite;
+    }
+
+    @keyframes cargando {
+        0% {
+            opacity: 0.2;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.2;
+        }
+    }
+
+
+    /* =========================================
+       BARRA SUPERIOR
+    ========================================= */
+
+    .header-top {
+        height: 37px;
+        background: #ffcc00;
+        border-top: 10px solid #004d40;
+
+        padding: 5px 15px;
+
+        font-size: 12px;
+        font-weight: bold;
+        color: #000;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-top select {
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 11px;
+        padding: 2px 5px;
+        border-radius: 0;
+        margin-left: 10px;
+    }
+
+
+    /* =========================================
+       BARRA DE NAVEGACIÓN
+    ========================================= */
+
+    .nav-bar {
+        background: #f5f5f5;
+
+        padding: 8px 48px;
+
+        border-bottom: 1px solid #d6d6d6;
+
+        display: flex;
+        align-items: center;
+        gap: 0;
+    }
+
+    .tab-green {
+        background: #76b900;
+        color: white;
+
+        height: 33px;
+
+        padding: 0 17px;
+
+        font-size: 13px;
+        font-weight: bold;
+
+        display: flex;
+        align-items: center;
+
+        clip-path: polygon(
+            0 0,
+            calc(100% - 12px) 0,
+            100% 50%,
+            calc(100% - 12px) 100%,
+            0 100%
+        );
+
+        margin-right: 2px;
+    }
+
+    .tab-exam-title {
+        height: 33px;
+
+        background: white;
+
+        border: 1px solid #cfcfcf;
+
+        padding: 0 15px;
+
+        font-size: 13px;
+        font-weight: bold;
+
+        color: #333;
+
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+    }
+
+
+    /* =========================================
+       CONTENEDOR PRINCIPAL
+    ========================================= */
+
+    .container-examen {
+        display: flex;
+
+        width: calc(100% - 96px);
+        max-width: 1260px;
+
+        margin: 20px auto;
+
+        gap: 20px;
+
+        padding: 20px 10px;
+
+        background: #f8f8f8;
+
+        border: 1px solid #e2e2e2;
+    }
+
+
+    /* =========================================
+       PANEL IZQUIERDO
+    ========================================= */
+
+    .sidebar-left {
+        width: 280px;
+
+        flex-shrink: 0;
+
+        background: #fff;
+
+        padding: 15px;
+
+        border: 1px solid #dddddd;
+
+        border-radius: 4px;
+
+        height: fit-content;
+    }
+
+    .titulo-seccion {
+        font-size: 12px;
+
+        font-weight: bold;
+
+        text-align: center;
+
+        border-bottom: 1px solid #dddddd;
+
+        padding-bottom: 7px;
+
+        margin-bottom: 12px;
+
+        color: #333;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 5px;
+    }
+
+    .grid-preguntas {
+        display: grid;
+
+        grid-template-columns: repeat(6, 1fr);
+
+        gap: 8px;
+
+        margin-bottom: 28px;
+    }
+
+    .btn-preg {
+        width: 30px;
+        height: 30px;
+
+        border: 1px solid #cccccc;
+
+        background: white;
+
+        text-align: center;
+
+        line-height: 30px;
+
+        font-size: 12px;
+
+        cursor: pointer;
+
+        border-radius: 2px;
+    }
+
+    .btn-preg.active {
+        border: 2px solid #333;
+
+        font-weight: bold;
+    }
+
+    .btn-preg.answered {
+        background-color: #65b31b;
+
+        color: white;
+
+        border: none;
+    }
+
+
+    /* =========================================
+       CONTENIDO CENTRAL
+    ========================================= */
+
+    .main-content {
+        width: 600px;
+
+        flex: 0 0 600px;
+
+        background: white;
+
+        padding: 25px;
+
+        border: 1px solid #dddddd;
+
+        border-radius: 4px;
+
+        position: relative;
+
+        min-height: 455px;
+    }
+
+    .main-content h3 {
+        margin-top: 0;
+
+        margin-bottom: 10px;
+
+        color: #222;
+
+        font-size: 17px;
+
+        font-weight: bold;
+
+        text-align: center;
+    }
+
+    .sub-titulo {
+        color: #444;
+
+        font-size: 16px;
+
+        font-weight: normal;
+
+        text-align: center;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* =========================================
+       PREGUNTAS / OPCIONES
+    ========================================= */
+
+    .opciones label {
+        display: block;
+
+        margin: 14px 0;
+
+        font-size: 14px;
+
+        cursor: pointer;
+
+        color: #222;
+
+        line-height: 1.35;
+    }
+
+
+    /* =========================================
+       BOTÓN SIGUIENTE
+    ========================================= */
+
+    .btn-siguiente {
+        background-color: #76b900;
+
+        color: white;
+
+        border: none;
+
+        padding: 8px 28px;
+
+        font-size: 13px;
+
+        border-radius: 3px;
+
+        cursor: pointer;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 5px;
+
+        margin: 40px auto 10px auto;
+
+        font-weight: bold;
+    }
+
+    .btn-siguiente:hover {
+        background-color: #65a500;
+    }
+
+
+    /* =========================================
+       PANEL DERECHO
+    ========================================= */
+
+    .sidebar-right {
+        width: 280px;
+
+        flex-shrink: 0;
+
+        background: white;
+
+        padding: 15px;
+
+        border: 1px solid #dddddd;
+
+        border-radius: 4px;
+
+        height: fit-content;
+    }
+
+
+    /* =========================================
+       TEMPORIZADOR
+    ========================================= */
+
+    .timer-box {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 4px;
+
+        margin: 10px 0 15px 0;
+    }
+
+    .digit {
+        background: #222;
+
+        color: white;
+
+        padding: 6px 10px;
+
+        font-size: 20px;
+
+        font-weight: bold;
+
+        border-radius: 3px;
+
+        box-shadow:
+            inset 0 2px 4px rgba(0,0,0,0.5),
+            0 1px 2px rgba(0,0,0,0.25);
+    }
+
+    .btn-terminar {
+        width: 100%;
+
+        background-color: #337ab7;
+
+        color: white;
+
+        border: none;
+
+        padding: 9px;
+
+        border-radius: 3px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        font-size: 13px;
+    }
+
+    .btn-terminar:hover {
+        background-color: #286090;
+    }
+
+
+    /* =========================================
+       RESULTADOS
+    ========================================= */
+
+    #pantalla-resultados {
+        display: none;
+
+        text-align: center;
+
+        padding: 40px 20px;
+    }
+
+    #pantalla-resultados h2 {
+        color: #333;
+
+        margin-bottom: 10px;
+    }
+
+    .calificacion-box {
+        font-size: 40px;
+
+        font-weight: bold;
+
+        color: #6bb122;
+
+        margin: 20px 0;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1000px) {
+
+        .container-examen {
+            width: 96%;
+        }
+
+        .sidebar-left,
+        .sidebar-right {
+            width: 220px;
+        }
+
+        .main-content {
+            width: auto;
+            flex: 1;
+        }
+    }
+
+    @media (max-width: 800px) {
+
+        .container-examen {
+            flex-direction: column;
+        }
+
+        .sidebar-left,
+        .sidebar-right,
+        .main-content {
+            width: 100%;
+            flex: none;
+        }
+
+    }
+
     </style>
 </head>
 <body>
