@@ -648,11 +648,12 @@ border-top: 10px solid #004231;
 }
 
 .right-card-icon {
-    font-size: 14px;
-
-    line-height: 1;
-
-    color: #444444;
+    width: 8px;
+    height: 10px;
+    display: inline-block;
+    border: 1px solid #444444;
+    border-radius: 1px;
+    flex-shrink: 0;
 }
 
 
@@ -799,9 +800,12 @@ border-top: 10px solid #004231;
 }
 
 .button-icon {
-    font-size: 14px;
-
-    line-height: 1;
+    width: 8px;
+    height: 10px;
+    display: inline-block;
+    border: 1px solid #ffffff;
+    border-radius: 1px;
+    flex-shrink: 0;
 }
 
 
@@ -979,7 +983,10 @@ border-top: 10px solid #004231;
     <div class="container-examen">
         <!-- Panel Izquierdo -->
         <div class="sidebar-left">
-            <div class="titulo-seccion">▢ PREGUNTAS</div>
+            <div class="titulo-seccion">
+    <span class="small-icon"></span>
+    <span>PREGUNTAS</span>
+</div>
             <div class="grid-preguntas" id="grid-preguntas"></div>
             <div style="display: flex; justify-content: space-around; font-size: 11px; border-top: 1px solid #dcdcdc; padding-top: 10px; color: #555;">
                 <div style="text-align: center;"><div style="width: 14px; height: 14px; background: #6bb122; margin: 0 auto 2px auto; border-radius: 2px;"></div>Respondidas</div>
@@ -999,7 +1006,10 @@ border-top: 10px solid #004231;
                 
                 <div class="opciones" id="contenedor-opciones"></div>
 
-                <button class="btn-siguiente" id="btn-siguiente">▢ Siguiente</button>
+                <button class="btn-siguiente" id="btn-siguiente">
+    <span class="small-icon"></span>
+    <span>Siguiente</span>
+</button>
                 
                 <!-- Párrafo que contiene exactamente "Pregunta nro." requerido por insertAnswer() -->
                 <p style="font-size: 11px; color: #666; font-style: italic; position: absolute; bottom: 15px; left: 25px;">
@@ -1026,7 +1036,7 @@ border-top: 10px solid #004231;
     <div class="right-card timer-card">
 
         <div class="right-card-title">
-            <span class="right-card-icon">◷</span>
+            <span class="right-card-icon"></span>
             <span>TIEMPO RESTANTE</span>
         </div>
 
@@ -1056,7 +1066,7 @@ border-top: 10px solid #004231;
     <div class="right-card action-card">
 
         <button class="btn-terminar" id="save_question_button">
-            <span class="button-icon">✓</span>
+            <span class="button-icon"></span>
             <span>Terminar intento</span>
         </button>
 
@@ -1069,7 +1079,7 @@ border-top: 10px solid #004231;
     <div class="right-card important-card">
 
         <div class="right-card-title important-title">
-            <span class="right-card-icon">ⓘ</span>
+            <span class="right-card-icon"></span>
             <span>IMPORTANTE</span>
         </div>
 
