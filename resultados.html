@@ -266,6 +266,95 @@
     max-width: 42px;
     text-align: center;
 }
+
+		/* =========================================
+   TABLA DE RESULTADOS DEL EXAMEN
+   ========================================= */
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabla-contenedor table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.tabla-contenedor th,
+.tabla-contenedor td {
+    border: 1px solid #bdbdbd;
+    padding: 6px 4px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    color: #333;
+}
+
+/* ENCABEZADOS SUPERIORES */
+.tabla-contenedor thead th {
+    background: #f2f2f2;
+    font-weight: normal;
+}
+
+/* NOMBRES DE LAS COLUMNAS */
+.tabla-contenedor th {
+    line-height: 17px;
+}
+
+/* DATOS */
+.tabla-contenedor td {
+    background: #fff;
+    line-height: 18px;
+}
+
+/* =========================================
+   NOTA OBTENIDA
+   ========================================= */
+
+.tabla-contenedor .celda-obtenida {
+    text-align: center;
+    white-space: nowrap;
+    padding: 6px 8px;
+}
+
+/* =========================================
+   NOTA FINAL — CAJA VERDE
+   ========================================= */
+
+.tabla-contenedor .celda-final {
+    background: #80c41c !important;
+    color: #fff !important;
+
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+
+    padding: 4px 2px !important;
+
+    text-align: center !important;
+    vertical-align: middle !important;
+
+    font-size: 12px !important;
+    font-weight: normal !important;
+    line-height: 18px !important;
+
+    white-space: normal !important;
+}
+
+/* CABECERA FINAL */
+.tabla-contenedor .cabecera-final {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+
+    text-align: center !important;
+    white-space: normal !important;
+}
 		
 <style>
 .exam-card {
