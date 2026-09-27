@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carpeta Pedagógica Digital - UDABOL</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
     <style>
-        * { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; width: 100%; }
+        * {
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
         body {
             background: #F2F2F2;
             color: #333333;
@@ -16,86 +27,122 @@
         }
 
         /* =====================================================
-           HEADER EXACTO DEL ORIGINAL UDABOL
+           HEADER (igual al original Udabol)
         ===================================================== */
-        .header {
-            background: #004231;
-            min-height: 50px;
+        .header-principal {
             width: 100%;
+            background: #004231;
+            color: #FFFFFF;
+            min-height: 50px;
         }
-        .header .row {
+        .header-contenido {
+            max-width: 1400px;
+            min-height: 50px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 15px;
-            min-height: 50px;
+            gap: 20px;
         }
-        .logo_header {
-            color: #fff;
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.2em;
-            padding: .5em;
-        }
-        .logo_image {
-            height: 25px;
-            width: 136px;
-            cursor: pointer;
-        }
-        .user_header {
-            text-align: right;
-        }
-        .user_header table {
-            width: auto;
-            margin-left: auto;
-        }
-        .header_name {
-            color: #fafafa;
-            font-size: .8em;
-            display: block;
-        }
-        .exit_button {
-            color: #fafafa;
-            cursor: pointer;
-            font-size: .9em;
-            padding: .2em;
-            text-align: right;
-            text-shadow: 0 2px 2px rgba(0,0,255,0.52);
-        }
-        .exit_button:hover {
-            text-decoration: underline;
-        }
-        .avatar_container {
-            width: 60px;
-            text-align: center;
-        }
-        .avatar_image {
-            height: 50px;
-            width: 50px;
-            border: 1px solid #fff;
-            border-radius: 3px;
-        }
-        .on-mobile { display: none; }
-        .on-desktop { display: block; }
 
-        /* FRANJA AMARILLA EXACTA */
-        .notice_bar {
-            background: #fbbb00;
-            -webkit-box-shadow: 0 8px 5px 0 rgba(66,65,66,0.1);
-            -moz-box-shadow: 0 8px 5px 0 rgba(66,65,66,0.1);
-            box-shadow: 0 8px 5px 0 rgba(66,65,66,0.1);
-            font-size: .6em;
-            height: 25px;
-            width: 100%;
+        /* LOGO */
+        .logo-area {
             display: flex;
             align-items: center;
-            padding: 0 15px;
-            color: #333;
+            gap: 12px;
+        }
+        .logo-udabol {
+            color: #FFFFFF;
+            font-family: 'Nunito', Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            padding: 0.5em 0;
+        }
+        .separador-logo {
+            width: 1px;
+            height: 28px;
+            background: rgba(255,255,255,0.45);
+        }
+        .titulo-carpeta {
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* USUARIO */
+        .usuario-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .usuario-info {
+            text-align: right;
+        }
+        .usuario-nombre {
+            color: #fafafa;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .cerrar-sesion {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 3px;
+            color: #fafafa;
+            font-size: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .cerrar-sesion:hover {
+            text-decoration: underline;
+        }
+
+        /* AVATAR */
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            color: #004231;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         /* =====================================================
-           RESTO DE LA PÁGINA (sin cambios)
+           FRANJA AMARILLA (igual al original)
+        ===================================================== */
+        .franja-sistema {
+            width: 100%;
+            background: #fbbb00;
+            color: #333333;
+            box-shadow: 0 8px 5px 0 rgba(66,65,66,0.1);
+        }
+        .franja-contenido {
+            max-width: 1400px;
+            min-height: 25px;
+            margin: 0 auto;
+            padding: 4px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .texto-sistema {
+            color: #333333;
+            font-size: 0.75em;
+        }
+
+        /* =====================================================
+           IDIOMA
         ===================================================== */
         .idioma-barra {
             max-width: 1400px;
@@ -125,11 +172,19 @@
             font-size: 11px;
             outline: none;
         }
+
+        /* =====================================================
+           CONTENIDO
+        ===================================================== */
         .contenedor-principal {
             max-width: 1400px;
             margin: 0 auto;
             padding: 18px 20px 35px;
         }
+
+        /* =====================================================
+           TABS
+        ===================================================== */
         .tabs {
             display: flex;
             align-items: flex-end;
@@ -145,6 +200,7 @@
             background: #FFFFFF;
             color: #333333;
             font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
             cursor: default;
         }
         .tab-activa {
@@ -156,11 +212,20 @@
             align-items: center;
             gap: 6px;
         }
+
+        /* =====================================================
+           IDENTIFICACIÓN
+        ===================================================== */
         .identificacion {
             margin-bottom: 10px;
             color: #333333;
             font-size: 12px;
+            font-weight: normal;
         }
+
+        /* =====================================================
+           TABLA
+        ===================================================== */
         .tabla-contenedor {
             width: 100%;
             background: #FFFFFF;
@@ -175,6 +240,8 @@
             background: #FFFFFF;
             font-size: 11px;
         }
+
+        /* CABECERA TABLA */
         thead th {
             border-right: 1px solid #D5D5D5;
             border-bottom: 1px solid #D5D5D5;
@@ -195,6 +262,8 @@
             font-size: 10px;
             font-weight: normal;
         }
+
+        /* CUERPO */
         tbody td {
             height: 58px;
             padding: 8px;
@@ -205,6 +274,8 @@
             text-align: center;
             vertical-align: middle;
         }
+
+        /* MATERIA */
         .celda-materia {
             min-width: 165px;
             text-align: center;
@@ -215,7 +286,10 @@
             display: block;
             margin-bottom: 2px;
             font-size: 10px;
+            color: #333333;
         }
+
+        /* NOMBRE */
         .celda-nombre {
             min-width: 190px;
             text-align: left;
@@ -223,20 +297,43 @@
             white-space: nowrap;
             font-size: 10px;
         }
-        .celda-codigo { min-width: 70px; }
+
+        /* CÓDIGO */
+        .celda-codigo {
+            min-width: 70px;
+            text-align: center;
+        }
+
+        /* FECHAS */
         .celda-tiempo {
             min-width: 135px;
+            text-align: center;
             white-space: nowrap;
             font-size: 10px;
         }
-        .celda-numero { min-width: 75px; }
+
+        /* NÚMEROS */
+        .celda-numero {
+            min-width: 75px;
+            text-align: center;
+        }
+
+        /* CORRECTAS */
         .celda-correctas {
             min-width: 75px;
             background: #F0FAEF !important;
             color: #3C9B3C !important;
             font-weight: bold;
         }
-        .celda-obtenida { min-width: 90px; white-space: nowrap; }
+
+        /* OBTENIDA */
+        .celda-obtenida {
+            min-width: 90px;
+            white-space: nowrap;
+            font-weight: normal;
+        }
+
+        /* FINAL */
         .cabecera-final {
             min-width: 85px;
             background: #7AC143 !important;
@@ -249,7 +346,11 @@
             color: #FFFFFF !important;
             font-size: 12px;
             font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
         }
+
+        /* BOTÓN */
         .zona-boton {
             margin-top: 16px;
             display: flex;
@@ -262,77 +363,116 @@
             border-radius: 3px;
             background: #7AC143;
             color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 12px;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 7px;
             cursor: pointer;
         }
-        .boton-continuar:hover { background: #6EAD3C; }
+        .boton-continuar:hover {
+            background: #6EAD3C;
+        }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .on-desktop { display: none; }
-            .on-mobile { display: block; }
-            .header .row {
+            .header-contenido {
+                padding: 10px 12px;
                 flex-direction: column;
-                padding: 8px 10px;
-                gap: 8px;
+                align-items: stretch;
+                gap: 10px;
             }
-            .user_header { text-align: center; }
-            .user_header table { margin: 0 auto; }
+            .logo-area {
+                justify-content: center;
+            }
+            .usuario-area {
+                justify-content: center;
+            }
+            .usuario-info {
+                text-align: center;
+            }
+            .usuario-nombre {
+                white-space: normal;
+            }
+            .cerrar-sesion {
+                justify-content: center;
+            }
+            .franja-contenido {
+                padding: 6px 12px;
+            }
+            .idioma-barra {
+                padding: 5px 12px;
+                justify-content: flex-start;
+            }
+            .contenedor-principal {
+                padding: 15px 10px 30px;
+            }
+            table {
+                min-width: 1120px;
+            }
+        }
+        @media (max-width: 420px) {
+            .logo-udabol {
+                font-size: 18px;
+            }
+            .titulo-carpeta {
+                font-size: 8px;
+            }
+            .avatar {
+                width: 36px;
+                height: 36px;
+            }
         }
     </style>
 </head>
 <body>
-
     <!-- =====================================================
-         HEADER EXACTO DEL ORIGINAL
+         HEADER (estilo original Udabol)
     ===================================================== -->
-    <div class="header">
-        <div class="row">
-            <!-- Logo (desktop) -->
-            <div class="col-sm-4 logo_header on-desktop">
-                <img class="logo_image" 
-                     src="https://virtual.udabol.edu.bo/carpetaverde/images/logo.png" 
-                     alt="UDABOL"
-                     onerror="this.src='data:image/png;base64,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';">
+    <header class="header-principal">
+        <div class="header-contenido">
+            <div class="logo-area">
+                <div class="logo-udabol">
+                    UDABOL
+                </div>
+                <div class="separador-logo"></div>
+                <div class="titulo-carpeta">
+                    CARPETA PEDAGÓGICA DIGITAL
+                </div>
             </div>
-
-            <!-- Usuario (derecha) -->
-            <div class="col-sm-4">
-                <div class="user_header">
-                    <table border="0" cellspacing="5" cellpadding="5">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <span class="header_name">LUCIANA BELEN VILLANUEVA SULCA</span>
-                                        <div class="exit_button" onclick="alert('Cerrar sesión')">
-                                            <i class="fa-solid fa-power-off"></i> CERRAR SESION
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="avatar_container">
-                                    <img class="avatar_image" 
-                                         src="https://virtual.udabol.edu.bo/theme/image.php/archaius/core/1406121166/u/f1" 
-                                         alt="Avatar"
-                                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIyNSIgY3k9IjE4IiByPSIxMCIgZmlsbD0iIzAwNDIzMSIvPjxwYXRoIGQ9Ik0xMCA0NWMwLTEwIDctMTUgMTUtMTVzMTUgNSAxNSAxNXoiIGZpbGw9IiMwMDQyMzEiLz48L3N2Zz4='">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="usuario-area">
+                <div class="usuario-info">
+                    <div class="usuario-nombre">
+                        LUCIANA BELEN VILLANUEVA SULCA
+                    </div>
+                    <a href="#" class="cerrar-sesion">
+                        <i class="fa-solid fa-power-off"></i>
+                        CERRAR SESION
+                    </a>
+                </div>
+                <div class="avatar">
+                    <i class="fa-solid fa-user"></i>
                 </div>
             </div>
         </div>
+    </header>
+
+    <!-- =====================================================
+         FRANJA AMARILLA (estilo original)
+    ===================================================== -->
+    <div class="franja-sistema">
+        <div class="franja-contenido">
+            <span class="texto-sistema">
+                Usuario de carpeta pedagógica: virtual.udabol.edu.bo
+            </span>
+        </div>
     </div>
 
-    <!-- FRANJA AMARILLA EXACTA DEL ORIGINAL -->
-    <div class="notice_bar">
-        Usuario de carpeta pedagógica: virtual.udabol.edu.bo
-    </div>
-
-    <!-- IDIOMA -->
+    <!-- =====================================================
+         IDIOMA
+    ===================================================== -->
     <div class="idioma-barra">
         <div class="selector-idioma">
             <label for="idioma">Seleccionar idioma</label>
@@ -342,19 +482,25 @@
         </div>
     </div>
 
-    <!-- CONTENIDO -->
+    <!-- =====================================================
+         CONTENIDO
+    ===================================================== -->
     <main class="contenedor-principal">
+        <!-- TABS -->
         <div class="tabs">
             <button type="button" class="tab">Materia</button>
             <button type="button" class="tab tab-activa">
-                <i class="fa-solid fa-list-check"></i> Exámenes
+                <i class="fa-solid fa-list-check"></i>
+                Exámenes
             </button>
         </div>
 
+        <!-- IDENTIFICACIÓN -->
         <div class="identificacion">
             2-2026-10190605: Examen Primer Parcial
         </div>
 
+        <!-- TABLA -->
         <div class="tabla-contenedor">
             <table>
                 <thead>
@@ -385,7 +531,9 @@
                             <span class="codigo-materia">210</span>
                             Neurología y neurocirugía - NM
                         </td>
-                        <td class="celda-nombre">VILLANUEVA SULCA LUCIANA BELEN</td>
+                        <td class="celda-nombre">
+                            VILLANUEVA SULCA LUCIANA BELEN
+                        </td>
                         <td class="celda-codigo">94154</td>
                         <td class="celda-tiempo">2026-09-16 15:16:02</td>
                         <td class="celda-tiempo">2026-09-16 15:42:19</td>
@@ -400,9 +548,11 @@
             </table>
         </div>
 
+        <!-- BOTÓN -->
         <div class="zona-boton">
             <button type="button" class="boton-continuar" onclick="continuar()">
-                <i class="fa-solid fa-check"></i> Continuar
+                <i class="fa-solid fa-check"></i>
+                Continuar
             </button>
         </div>
     </main>
@@ -414,24 +564,38 @@
 
         let respuestasUltimoIntento = {};
         try {
-            respuestasUltimoIntento = JSON.parse(localStorage.getItem('udabol_ultimo_intento_respuestas') || '{}');
-        } catch (e) {
+            respuestasUltimoIntento = JSON.parse(
+                localStorage.getItem('udabol_ultimo_intento_respuestas') || '{}'
+            );
+        } catch (error) {
             respuestasUltimoIntento = {};
         }
 
         let respondidas = 0;
-        Object.keys(respuestasUltimoIntento).forEach(clave => {
-            const r = respuestasUltimoIntento[clave];
-            if (r !== null && r !== undefined && String(r).trim() !== '') respondidas++;
+        Object.keys(respuestasUltimoIntento).forEach(function(clave) {
+            const respuesta = respuestasUltimoIntento[clave];
+            if (respuesta !== null && respuesta !== undefined && String(respuesta).trim() !== '') {
+                respondidas++;
+            }
         });
 
-        let total = totalPreguntas > 0 ? totalPreguntas : Object.keys(respuestasUltimoIntento).length;
-        let sinResponder = Math.max(0, total - respondidas);
+        let total = totalPreguntas;
+        if (total <= 0) {
+            total = Object.keys(respuestasUltimoIntento).length;
+        }
+
+        let sinResponder = total - respondidas;
+        if (sinResponder < 0) sinResponder = 0;
 
         let notaSobre100 = notaGuardada;
         if (!Number.isFinite(notaSobre100) || (notaSobre100 === 0 && aciertos > 0)) {
-            notaSobre100 = total > 0 ? (aciertos / total) * 100 : 0;
+            if (total > 0) {
+                notaSobre100 = (aciertos / total) * 100;
+            } else {
+                notaSobre100 = 0;
+            }
         }
+
         const notaSobre60 = (notaSobre100 * 60) / 100;
 
         document.getElementById('cantidad-preguntas').textContent = total;
@@ -441,7 +605,9 @@
         document.getElementById('nota-obtenida').textContent = Math.round(notaSobre100) + ' / 100';
         document.getElementById('nota-final').textContent = Math.round(notaSobre60) + ' / 60';
 
-        function continuar() {}
+        function continuar() {
+            // Por ahora no se inicia un nuevo intento.
+        }
     </script>
 </body>
 </html>
