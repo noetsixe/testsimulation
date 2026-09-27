@@ -230,12 +230,52 @@
         document.getElementById('nota-obtenida').textContent = Math.round(notaSobre100) + ' / 100';
         document.getElementById('nota-final').textContent = Math.round(notaSobre60) + ' / 60';
 
-        function continuar() {
-            // Por ahora no se inicia un nuevo intento.
-        }
-	    <script>
-			
-</style>		
+        <script>
+function continuar() {
+    // Por ahora no se inicia un nuevo intento.
+}
+</script>
+
+<style>
+
+/* =========================================
+   CAJA DE NOTA
+   ========================================= */
+
+.tabla-contenedor .celda-obtenida {
+    text-align: center;
+    white-space: nowrap;
+    padding: 6px 8px;
+    color: #555;
+}
+
+.tabla-contenedor .celda-final {
+    background: #82c30f !important;
+    color: #fff !important;
+    text-align: center;
+    font-weight: normal;
+
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+
+    padding: 4px 3px !important;
+    line-height: 18px;
+    white-space: normal;
+}
+
+.tabla-contenedor .cabecera-final {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    text-align: center;
+}
+
+
+/* =========================================
+   TARJETA DEL EXAMEN
+   ========================================= */
+
 .exam-card {
     display: flex;
     justify-content: space-between;
@@ -269,9 +309,7 @@
 .btn-intento:hover {
     background: #125ca1;
 }
-</style>
 
-</style>	
 
 .tabla-contenedor .celda-obtenida {
     text-align: center;
