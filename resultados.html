@@ -1,77 +1,458 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Carpeta Pedagógica Digital - UDABOL</title>
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- FontAwesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f6f9;
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        /* ================================
+           HEADER INSTITUCIONAL
+        ================================= */
+
+        .header-principal {
+            background: #005b33;
+            color: white;
+        }
+
+        .header-contenido {
+            max-width: 1400px;
+            margin: auto;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-udabol {
+            font-size: 21px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .separador-logo {
+            width: 1px;
+            height: 27px;
+            background: rgba(255,255,255,0.35);
+        }
+
+        .titulo-carpeta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #e5f2eb;
+        }
+
+        .usuario-area {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .usuario-info {
+            text-align: right;
+        }
+
+        .usuario-nombre {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .cerrar-sesion {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 3px;
+            color: #d8eee2;
+            text-decoration: none;
+            font-size: 10px;
+        }
+
+        .cerrar-sesion:hover {
+            text-decoration: underline;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: white;
+            color: #005b33;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+        }
+
+        /* ================================
+           FRANJA DE SISTEMA
+        ================================= */
+
+        .franja-sistema {
+            background: #f0ad4e;
+            color: #ffffff;
+        }
+
+        .franja-contenido {
+            max-width: 1400px;
+            margin: auto;
+            padding: 5px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 11px;
+        }
+
+        .selector-idioma {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .selector-idioma select {
+            border: 1px solid #d9d9d9;
+            border-radius: 3px;
+            padding: 2px 5px;
+            background: white;
+            color: #333;
+            font-size: 11px;
+        }
+
+        /* ================================
+           CONTENIDO
+        ================================= */
+
+        .contenedor-principal {
+            max-width: 1400px;
+            margin: auto;
+            padding: 22px 18px 35px;
+        }
+
+        /* ================================
+           TABS
+        ================================= */
+
+        .tabs {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            border-bottom: 1px solid #dcdcdc;
+            margin-bottom: 17px;
+        }
+
+        .tab {
+            padding: 8px 18px;
+            border: 1px solid #dcdcdc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            background: #ffffff;
+            color: #555555;
+            font-size: 12px;
+        }
+
+        .tab-activa {
+            background: #5cb85c;
+            color: white;
+            font-weight: bold;
+            border-color: #5cb85c;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        /* ================================
+           IDENTIFICACION DEL EXAMEN
+        ================================= */
+
+        .identificacion {
+            background: white;
+            border: 1px solid #dcdcdc;
+            border-left: 4px solid #005b33;
+            padding: 10px 13px;
+            margin-bottom: 10px;
+            color: #333333;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* ================================
+           TABLA
+        ================================= */
+
+        .tabla-contenedor {
+            background: white;
+            border: 1px solid #dcdcdc;
+            overflow-x: auto;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        table {
+            width: 100%;
+            min-width: 1150px;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+
+        th,
+        td {
+            border-right: 1px solid #dcdcdc;
+            border-bottom: 1px solid #dcdcdc;
+            padding: 9px 8px;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+
+        thead tr:first-child {
+            background: #f1f3f5;
+        }
+
+        thead tr:nth-child(2) {
+            background: #f8f9fa;
+        }
+
+        th {
+            color: #555555;
+            text-align: center;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .th-principal {
+            font-size: 11px;
+            letter-spacing: .2px;
+        }
+
+        .th-secundario {
+            font-size: 10px;
+            font-weight: normal;
+        }
+
+        tbody td {
+            background: #ffffff;
+            color: #333333;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        tbody tr:hover td {
+            background: #f9fbfa;
+        }
+
+        .celda-examen {
+            color: #005b33;
+            font-weight: bold;
+            text-align: left;
+            min-width: 190px;
+        }
+
+        .celda-nombre {
+            text-align: left;
+            text-transform: uppercase;
+            min-width: 190px;
+        }
+
+        .celda-codigo {
+            font-family: monospace;
+            min-width: 70px;
+        }
+
+        .celda-tiempo {
+            white-space: nowrap;
+            min-width: 145px;
+        }
+
+        .celda-correctas {
+            color: #3c9b3c;
+            font-weight: bold;
+            background: #f0faef !important;
+        }
+
+        .celda-obtenida {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .celda-final {
+            background: #5cb85c !important;
+            color: white !important;
+            font-size: 14px;
+            font-weight: bold;
+            min-width: 85px;
+            white-space: nowrap;
+        }
+
+        /* ================================
+           BOTON
+        ================================= */
+
+        .zona-boton {
+            margin-top: 18px;
+        }
+
+        .boton-nuevo {
+            border: none;
+            background: #5cb85c;
+            color: white;
+            padding: 9px 17px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: .15s ease;
+        }
+
+        .boton-nuevo:hover {
+            background: #4cae4c;
+            transform: translateY(-1px);
+        }
+
+        .boton-nuevo:active {
+            transform: translateY(0);
+        }
+
+        /* ================================
+           MOVIL
+        ================================= */
+
+        @media (max-width: 700px) {
+
+            .header-contenido {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 11px 12px;
+                gap: 10px;
+            }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            .usuario-area {
+                justify-content: center;
+            }
+
+            .usuario-info {
+                text-align: center;
+            }
+
+            .usuario-nombre {
+                white-space: normal;
+            }
+
+            .franja-contenido {
+                padding: 6px 12px;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .contenedor-principal {
+                padding: 15px 10px 30px;
+            }
+
+            .tabs {
+                margin-bottom: 13px;
+            }
+
+            .tab {
+                padding: 8px 13px;
+            }
+
+            .identificacion {
+                font-size: 12px;
+            }
+
+            .tabla-contenedor {
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 font-sans text-gray-800">
+<body>
 
-    <!-- Cabecera Institucional -->
-    <header class="bg-[#0b4d32] text-white shadow-md">
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
 
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+    <header class="header-principal">
 
-            <!-- Logo y Título -->
-            <div class="flex items-center space-x-3 mb-2 md:mb-0">
+        <div class="header-contenido">
 
-                <span class="text-xl font-bold tracking-wider">
+            <div class="logo-area">
+
+                <div class="logo-udabol">
                     UDABOL
-                </span>
+                </div>
 
-                <span class="text-xs uppercase tracking-widest border-l border-emerald-600 pl-3">
-                    Carpeta Pedagógica Digital
-                </span>
+                <div class="separador-logo"></div>
+
+                <div class="titulo-carpeta">
+                    CARPETA PEDAGÓGICA DIGITAL
+                </div>
 
             </div>
 
-            <!-- Datos del Usuario y Sesión -->
-            <div class="flex items-center space-x-4 text-sm">
 
-                <div class="text-right">
+            <div class="usuario-area">
 
-                    <p class="font-semibold">
+                <div class="usuario-info">
+
+                    <div class="usuario-nombre">
                         LUCIANA BELEN VILLANUEVA SULCA
-                    </p>
+                    </div>
 
-                    <a href="#" class="text-xs text-emerald-200 hover:underline flex items-center justify-end gap-1">
+                    <a href="#" class="cerrar-sesion">
                         <i class="fa-solid fa-power-off"></i>
                         CERRAR SESION
                     </a>
 
                 </div>
 
-                <div class="bg-white text-[#0b4d32] rounded-full p-2 w-10 h-10 flex items-center justify-center font-bold shadow">
+                <div class="avatar">
                     <i class="fa-solid fa-user"></i>
                 </div>
-
-            </div>
-
-        </div>
-
-        <!-- Barra de estado secundaria -->
-        <div class="bg-[#126b48] px-4 py-1.5 text-xs text-emerald-100 flex justify-between items-center max-w-7xl mx-auto">
-
-            <span>
-                Usuario de carpeta pedagógica: virtual.udabol.edu.bo
-            </span>
-
-            <div>
-
-                <label for="idioma" class="mr-1">
-                    Seleccionar idioma
-                </label>
-
-                <select id="idioma" class="bg-white text-gray-800 rounded px-1 py-0.5 text-xs outline-none">
-                    <option>Español</option>
-                </select>
 
             </div>
 
@@ -80,112 +461,149 @@
     </header>
 
 
-    <!-- Contenido Principal -->
-    <main class="max-w-7xl mx-auto px-4 py-6">
+    <!-- ==========================================
+         FRANJA DE SISTEMA
+    =========================================== -->
 
-        <!-- Pestañas de Navegación -->
-        <div class="flex space-x-2 mb-6 border-b border-gray-300 pb-2">
+    <div class="franja-sistema">
 
-            <button class="px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-t-md hover:bg-gray-50">
+        <div class="franja-contenido">
+
+            <span>
+                Usuario de carpeta pedagógica: virtual.udabol.edu.bo
+            </span>
+
+            <div class="selector-idioma">
+
+                <label for="idioma">
+                    Seleccionar idioma
+                </label>
+
+                <select id="idioma">
+                    <option>Español</option>
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main class="contenedor-principal">
+
+
+        <!-- TABS -->
+
+        <div class="tabs">
+
+            <button class="tab">
                 Materias
             </button>
 
-            <button class="px-4 py-2 text-sm font-semibold text-white bg-[#6db82d] rounded-t-md flex items-center gap-2 shadow">
-
-                <i class="fa-solid fa-file-lines"></i>
-
+            <button class="tab tab-activa">
+                <i class="fa-solid fa-list-check"></i>
                 Exámenes
-
             </button>
 
         </div>
 
 
-        <!-- Subtítulo de Sección -->
-        <div class="mb-4 text-sm font-medium text-gray-700">
+        <!-- IDENTIFICACION DEL EXAMEN -->
 
+        <div class="identificacion">
             2026-2-2026-10190605: Examen Primer Parcial
-
         </div>
 
 
-        <!-- Contenedor de la Tabla -->
-        <div class="overflow-x-auto bg-white shadow-md rounded-lg border border-gray-200">
+        <!-- ======================================
+             TABLA PRINCIPAL
+        ======================================= -->
 
-            <table class="w-full text-left border-collapse text-xs md:text-sm">
+        <div class="tabla-contenedor">
+
+            <table>
 
                 <thead>
 
-                    <!-- Fila Superior de Agrupación -->
-                    <tr class="bg-gray-100 text-gray-700 text-center border-b border-gray-300">
+                    <!-- PRIMER NIVEL -->
 
-                        <th rowspan="2" class="p-3 border-r border-gray-300 font-semibold">
-                            EXAMEN<br>
-                            <span class="text-xs font-normal">
-                                MATERIA
-                            </span>
+                    <tr>
+
+                        <th rowspan="2" class="th-principal">
+                            EXAMEN / MATERIA
                         </th>
 
-                        <th colspan="2" class="p-2 border-r border-gray-300 font-semibold">
+                        <th colspan="2" class="th-principal">
                             ESTUDIANTE
                         </th>
 
-                        <th colspan="2" class="p-2 border-r border-gray-300 font-semibold">
+                        <th colspan="2" class="th-principal">
                             TIEMPO
                         </th>
 
-                        <th colspan="4" class="p-2 border-r border-gray-300 font-semibold">
+                        <th colspan="4" class="th-principal">
                             PREGUNTAS
                         </th>
 
-                        <th colspan="2" class="font-semibold">
+                        <th colspan="2" class="th-principal">
                             NOTA
+                        </th>
+
+                        <th rowspan="2"
+                            class="celda-final">
+                            FINAL
                         </th>
 
                     </tr>
 
 
-                    <!-- Fila Inferior de Columnas -->
-                    <tr class="bg-gray-50 text-gray-600 text-center border-b border-gray-300">
+                    <!-- SEGUNDO NIVEL -->
 
-                        <th class="p-2 border-r border-gray-300">
+                    <tr>
+
+                        <th class="th-secundario">
                             NOMBRE COMPLETO
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             CÓDIGO
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             INICIO
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             FIN
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             CANTIDAD
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             RESPONDIDAS
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             SIN RESPONDER
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             CORRECTAS
                         </th>
 
-                        <th class="p-2 border-r border-gray-300">
+                        <th class="th-secundario">
                             OBTENIDA
                         </th>
 
-                        <th class="p-2 bg-emerald-100 text-[#0b4d32] font-bold">
-                            FINAL
+                        <th class="th-secundario">
+                            PONDERACIÓN
                         </th>
 
                     </tr>
@@ -193,74 +611,97 @@
                 </thead>
 
 
-                <tbody class="divide-y divide-gray-200 text-center">
+                <tbody>
 
-                    <tr class="hover:bg-gray-50">
+                    <tr>
 
-                        <!-- Materia -->
-                        <td class="p-3 border-r border-gray-200 font-medium text-[#0b4d32]">
+                        <!-- EXAMEN -->
+
+                        <td class="celda-examen">
                             Neurología y neurocirugía - NM
                         </td>
 
 
-                        <!-- Nombre -->
-                        <td class="p-3 border-r border-gray-200 uppercase text-left">
+                        <!-- ESTUDIANTE -->
+
+                        <td class="celda-nombre">
                             Villanueva Sulca Luciana Belen
                         </td>
 
 
-                        <!-- Código -->
-                        <td class="p-3 border-r border-gray-200 font-mono">
+                        <!-- CÓDIGO -->
+
+                        <td class="celda-codigo">
                             94154
                         </td>
 
 
-                        <!-- Inicio -->
-                        <td class="p-3 border-r border-gray-200 text-gray-600 whitespace-nowrap">
+                        <!-- INICIO -->
+
+                        <td class="celda-tiempo">
                             2026-09-16<br>
                             15:16:02
                         </td>
 
 
-                        <!-- Fin -->
-                        <td class="p-3 border-r border-gray-200 text-gray-600 whitespace-nowrap">
+                        <!-- FIN -->
+
+                        <td class="celda-tiempo">
                             2026-09-16<br>
                             15:42:19
                         </td>
 
 
                         <!-- CANTIDAD -->
-                        <td id="cantidad" class="p-3 border-r border-gray-200">
+
+                        <td id="cantidad">
                             0
                         </td>
 
 
                         <!-- RESPONDIDAS -->
-                        <td id="respondidas" class="p-3 border-r border-gray-200">
+
+                        <td id="respondidas">
                             0
                         </td>
 
 
                         <!-- SIN RESPONDER -->
-                        <td id="sinResponder" class="p-3 border-r border-gray-200">
+
+                        <td id="sinResponder">
                             0
                         </td>
 
 
                         <!-- CORRECTAS -->
-                        <td id="correctas" class="p-3 border-r border-gray-200 font-semibold text-green-600">
+
+                        <td id="correctas"
+                            class="celda-correctas">
                             0
                         </td>
 
 
                         <!-- OBTENIDA -->
-                        <td id="obtenida" class="p-3 border-r border-gray-200 font-medium">
+
+                        <td id="obtenida"
+                            class="celda-obtenida">
                             0 / 100
                         </td>
 
 
+                        <!-- PONDERACIÓN -->
+
+                        <td class="celda-obtenida">
+                            <span id="ponderacion">
+                                0 / 60
+                            </span>
+                        </td>
+
+
                         <!-- FINAL -->
-                        <td id="notaFinal" class="p-3 bg-[#6db82d] text-white font-bold text-base">
+
+                        <td id="notaFinal"
+                            class="celda-final">
                             0 / 60
                         </td>
 
@@ -273,12 +714,15 @@
         </div>
 
 
-        <!-- Botón de Acción inferior -->
-        <div class="mt-6">
+        <!-- ======================================
+             BOTÓN
+        ======================================= -->
+
+        <div class="zona-boton">
 
             <button
                 onclick="window.location.href='examen.html?nuevo=1'"
-                class="bg-[#6db82d] hover:bg-emerald-600 text-white font-semibold px-5 py-2.5 rounded shadow flex items-center gap-2 text-sm transition">
+                class="boton-nuevo">
 
                 <i class="fa-solid fa-check"></i>
 
@@ -288,73 +732,139 @@
 
         </div>
 
-
     </main>
 
 
-    <!-- =====================================================
-         CARGAR RESULTADOS DEL ÚLTIMO INTENTO
-         ===================================================== -->
+    <!-- ==========================================
+         CARGAR RESULTADOS
+    =========================================== -->
 
     <script>
 
-        // Obtener resultado guardado por examen.html
+        /*
+         * Recuperamos los datos guardados
+         * por examen.html
+         */
+
         const notaFinal =
-            parseInt(localStorage.getItem('udabol_nota_final')) || 0;
+            parseInt(
+                localStorage.getItem('udabol_nota_final')
+            ) || 0;
+
 
         const aciertos =
-            parseInt(localStorage.getItem('udabol_aciertos')) || 0;
+            parseInt(
+                localStorage.getItem('udabol_aciertos')
+            ) || 0;
+
 
         const totalPreguntas =
-            parseInt(localStorage.getItem('udabol_total_preguntas')) || 5;
+            parseInt(
+                localStorage.getItem('udabol_total_preguntas')
+            ) || 5;
 
 
-        // Recuperar las respuestas del último intento
         const respuestas = JSON.parse(
-            localStorage.getItem('udabol_ultimo_intento_respuestas') || '[]'
+            localStorage.getItem(
+                'udabol_ultimo_intento_respuestas'
+            ) || '[]'
         );
 
 
-        // Contar preguntas respondidas
+        /*
+         * Preguntas respondidas
+         */
+
         const respondidas =
-            respuestas.filter(respuesta => respuesta !== null).length;
+            respuestas.filter(
+                respuesta => respuesta !== null
+            ).length;
 
 
-        // Calcular preguntas sin responder
+        /*
+         * Preguntas sin responder
+         */
+
         const sinResponder =
-            totalPreguntas - respondidas;
+            Math.max(
+                0,
+                totalPreguntas - respondidas
+            );
 
 
-        // Mostrar cantidad total
-        document.getElementById('cantidad').textContent =
-            totalPreguntas;
+        /*
+         * Cantidad
+         */
+
+        document.getElementById(
+            'cantidad'
+        ).textContent = totalPreguntas;
 
 
-        // Mostrar respondidas
-        document.getElementById('respondidas').textContent =
-            respondidas;
+        /*
+         * Respondidas
+         */
+
+        document.getElementById(
+            'respondidas'
+        ).textContent = respondidas;
 
 
-        // Mostrar sin responder
-        document.getElementById('sinResponder').textContent =
-            sinResponder;
+        /*
+         * Sin responder
+         */
+
+        document.getElementById(
+            'sinResponder'
+        ).textContent = sinResponder;
 
 
-        // Mostrar correctas
-        document.getElementById('correctas').textContent =
-            aciertos;
+        /*
+         * Correctas
+         */
+
+        document.getElementById(
+            'correctas'
+        ).textContent = aciertos;
 
 
-        // Mostrar nota sobre 100
-        document.getElementById('obtenida').textContent =
+        /*
+         * Nota obtenida sobre 100
+         */
+
+        document.getElementById(
+            'obtenida'
+        ).textContent =
             notaFinal + ' / 100';
 
 
-        // Mostrar nota final sobre 60
-        document.getElementById('notaFinal').textContent =
-            Math.round(notaFinal * 0.6) + ' / 60';
+        /*
+         * Ponderación sobre 60
+         */
+
+        const ponderacion =
+            Math.round(
+                notaFinal * 0.6
+            );
+
+
+        document.getElementById(
+            'ponderacion'
+        ).textContent =
+            ponderacion + ' / 60';
+
+
+        /*
+         * Celda FINAL
+         */
+
+        document.getElementById(
+            'notaFinal'
+        ).textContent =
+            ponderacion + ' / 60';
 
     </script>
 
 </body>
 </html>
+```
