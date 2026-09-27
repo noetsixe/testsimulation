@@ -111,8 +111,7 @@
 	<div class="col-sm-12">
 		<div class="breadcrumb">
 			<a href="#" onclick="loadCourses()"><span class="icon-user2"> </span>Materias</a>
-			<span class="icon-stack"> <span>Examenes</span>
-        <span>Segundo Parcial Examen Paquidermiologia L01-2026</span>
+			<span class="icon-stack"> </span>Lista de Exámenes
 		</div>
 	</div>
 </div>
@@ -228,11 +227,43 @@
         document.getElementById('nota-obtenida').textContent = Math.round(notaSobre100) + ' / 100';
         document.getElementById('nota-final').textContent = Math.round(notaSobre60) + ' / 60';
 
-        <script>
+       <script>
 function continuar() {
     window.location.href = 'index.html';
 }
 </script>
+
+<style>
+
+/* BOTÓN CONTINUAR */
+.zona-boton {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.boton-continuar {
+    display: inline-block;
+
+    width: 165px;
+    padding: 10px 20px;
+
+    background: #80c41c !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    text-align: center;
+    cursor: pointer;
+}
+
+.boton-continuar:hover {
+    background: #6faf10 !important;
+}
 
 <style>
 
