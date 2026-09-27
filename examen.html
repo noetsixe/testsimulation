@@ -1270,13 +1270,29 @@ let respuestasUsuario =
         // Detener el temporizador
         clearInterval(timer);
 
-        // Borrar todo el estado del examen
+        // Calcular el resultado ANTES de borrar las respuestas
+        let aciertos = 0;
+
+        bancoPreguntas.forEach((item, index) => {
+            if (respuestasUsuario[index] === item.correcta) {
+                aciertos++;
+            }
+        });
+
+        let notaFinal = aciertos * 20;
+
+        // Guardar el resultado para resultado.html
+        localStorage.setItem('udabol_nota_final', notaFinal);
+        localStorage.setItem('udabol_aciertos', aciertos);
+        localStorage.setItem('udabol_total_preguntas', totalPreguntas);
+
+        // Borrar el estado del intento terminado
         localStorage.removeItem('udabol_pregunta_actual');
         localStorage.removeItem('udabol_respuestas');
         localStorage.removeItem('udabol_tiempo_restante');
 
-        // Mostrar los resultados
-        calcularYMostrarNota();
+        // Ir a la página de resultados
+        window.location.href = 'resultado.html';
     }
 };
 
