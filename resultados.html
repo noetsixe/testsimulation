@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -36,7 +37,7 @@
 
 
         /* =====================================================
-           HEADER PRINCIPAL
+           HEADER
         ===================================================== */
 
         .header-principal {
@@ -48,14 +49,12 @@
         .header-contenido {
             max-width: 1400px;
             min-height: 64px;
-
             margin: 0 auto;
             padding: 10px 20px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 20px;
         }
 
@@ -72,32 +71,24 @@
 
         .logo-udabol {
             color: #FFFFFF;
-
             font-size: 21px;
             font-weight: bold;
-
             letter-spacing: 1.5px;
-
             white-space: nowrap;
         }
 
         .separador-logo {
             width: 1px;
             height: 27px;
-
             background: rgba(255,255,255,0.45);
         }
 
         .titulo-carpeta {
             color: #FFFFFF;
-
             font-size: 11px;
             font-weight: normal;
-
             letter-spacing: 1px;
-
             text-transform: uppercase;
-
             white-space: nowrap;
         }
 
@@ -109,7 +100,6 @@
         .usuario-area {
             display: flex;
             align-items: center;
-
             gap: 12px;
         }
 
@@ -119,27 +109,21 @@
 
         .usuario-nombre {
             color: #FFFFFF;
-
             font-size: 11px;
             font-weight: bold;
-
             text-transform: uppercase;
-
             white-space: nowrap;
         }
 
         .cerrar-sesion {
             display: inline-flex;
             align-items: center;
-
             gap: 5px;
 
             margin-top: 4px;
 
             color: #FFFFFF;
-
             font-size: 10px;
-
             text-decoration: none;
         }
 
@@ -159,7 +143,6 @@
             border-radius: 50%;
 
             background: #FFFFFF;
-
             color: #0B4F30;
 
             display: flex;
@@ -171,14 +154,13 @@
 
 
         /* =====================================================
-           FRANJA DE AVISO
+           FRANJA AMARILLA
         ===================================================== */
 
         .franja-sistema {
             width: 100%;
 
             background: #FFC107;
-
             color: #333333;
 
             border-bottom: 1px solid #D9A500;
@@ -186,11 +168,9 @@
 
         .franja-contenido {
             max-width: 1400px;
-
             min-height: 29px;
 
             margin: 0 auto;
-
             padding: 5px 20px;
 
             display: flex;
@@ -198,22 +178,20 @@
         }
 
         .texto-sistema {
-            font-size: 11px;
             color: #333333;
+            font-size: 11px;
         }
 
 
         /* =====================================================
-           SELECTOR DE IDIOMA
+           IDIOMA
         ===================================================== */
 
         .idioma-barra {
             max-width: 1400px;
-
-            margin: 0 auto;
-
             min-height: 34px;
 
+            margin: 0 auto;
             padding: 5px 20px;
 
             display: flex;
@@ -228,11 +206,9 @@
         .selector-idioma {
             display: flex;
             align-items: center;
-
             gap: 6px;
 
             color: #333333;
-
             font-size: 11px;
         }
 
@@ -242,11 +218,9 @@
             padding: 1px 20px 1px 6px;
 
             border: 1px solid #CCCCCC;
-
             border-radius: 2px;
 
             background: #FFFFFF;
-
             color: #333333;
 
             font-size: 11px;
@@ -256,7 +230,7 @@
 
 
         /* =====================================================
-           CONTENEDOR PRINCIPAL
+           CONTENIDO
         ===================================================== */
 
         .contenedor-principal {
@@ -269,13 +243,12 @@
 
 
         /* =====================================================
-           PESTAÑAS
+           TABS
         ===================================================== */
 
         .tabs {
             display: flex;
             align-items: flex-end;
-
             gap: 2px;
 
             border-bottom: 1px solid #D5D5D5;
@@ -292,11 +265,12 @@
             border-radius: 5px 5px 0 0;
 
             background: #FFFFFF;
-
             color: #333333;
 
             font-size: 12px;
             font-family: Arial, Helvetica, sans-serif;
+
+            cursor: default;
         }
 
         .tab-activa {
@@ -310,7 +284,6 @@
 
             display: flex;
             align-items: center;
-
             gap: 6px;
         }
 
@@ -325,13 +298,12 @@
             color: #333333;
 
             font-size: 12px;
-
             font-weight: normal;
         }
 
 
         /* =====================================================
-           CONTENEDOR TABLA
+           TABLA
         ===================================================== */
 
         .tabla-contenedor {
@@ -345,11 +317,6 @@
 
             overflow-x: auto;
         }
-
-
-        /* =====================================================
-           TABLA
-        ===================================================== */
 
         table {
             width: 100%;
@@ -386,7 +353,6 @@
             background: #F2F2F2;
 
             font-size: 11px;
-
             font-weight: bold;
         }
 
@@ -396,7 +362,6 @@
             background: #EBEBEB;
 
             font-size: 10px;
-
             font-weight: normal;
         }
 
@@ -433,9 +398,17 @@
 
             font-size: 10px;
 
-            font-weight: normal;
-
             line-height: 1.3;
+        }
+
+        .codigo-materia {
+            display: block;
+
+            margin-bottom: 2px;
+
+            font-size: 10px;
+
+            color: #333333;
         }
 
 
@@ -498,6 +471,12 @@
         ===================================================== */
 
         .celda-correctas {
+            min-width: 75px;
+
+            background: #F0FAEF !important;
+
+            color: #3C9B3C !important;
+
             font-weight: bold;
         }
 
@@ -510,6 +489,8 @@
             min-width: 90px;
 
             white-space: nowrap;
+
+            font-weight: normal;
         }
 
 
@@ -518,6 +499,8 @@
         ===================================================== */
 
         .cabecera-final {
+            min-width: 85px;
+
             background: #7AC143 !important;
 
             color: #FFFFFF !important;
@@ -550,6 +533,7 @@
             margin-top: 16px;
 
             display: flex;
+
             justify-content: flex-start;
         }
 
@@ -573,7 +557,9 @@
             font-weight: bold;
 
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
 
             gap: 7px;
@@ -639,9 +625,7 @@
             table {
                 min-width: 1120px;
             }
-
         }
-
 
         @media (max-width: 420px) {
 
@@ -657,7 +641,6 @@
                 width: 34px;
                 height: 34px;
             }
-
         }
 
     </style>
@@ -677,8 +660,6 @@
         <div class="header-contenido">
 
 
-            <!-- IZQUIERDA -->
-
             <div class="logo-area">
 
                 <div class="logo-udabol">
@@ -694,8 +675,6 @@
             </div>
 
 
-            <!-- DERECHA -->
-
             <div class="usuario-area">
 
                 <div class="usuario-info">
@@ -708,8 +687,11 @@
                         href="#"
                         class="cerrar-sesion"
                     >
+
                         <i class="fa-solid fa-power-off"></i>
+
                         CERRAR SESION
+
                     </a>
 
                 </div>
@@ -723,7 +705,6 @@
 
             </div>
 
-
         </div>
 
     </header>
@@ -731,7 +712,7 @@
 
 
     <!-- =====================================================
-         FRANJA AMARILLA
+         FRANJA DE SISTEMA
     ===================================================== -->
 
     <div class="franja-sistema">
@@ -739,7 +720,10 @@
         <div class="franja-contenido">
 
             <span class="texto-sistema">
-                Usuario de carpeta pedagógica: virtual.udabol.edu.bo
+
+                Usuario de carpeta pedagógica:
+                virtual.udabol.edu.bo
+
             </span>
 
         </div>
@@ -749,7 +733,7 @@
 
 
     <!-- =====================================================
-         SELECTOR DE IDIOMA
+         IDIOMA
     ===================================================== -->
 
     <div class="idioma-barra">
@@ -781,9 +765,7 @@
     <main class="contenedor-principal">
 
 
-        <!-- =================================================
-             PESTAÑAS
-        ================================================== -->
+        <!-- TABS -->
 
         <div class="tabs">
 
@@ -810,9 +792,7 @@
 
 
 
-        <!-- =================================================
-             ID DEL EXAMEN
-        ================================================== -->
+        <!-- IDENTIFICACIÓN -->
 
         <div class="identificacion">
 
@@ -822,20 +802,13 @@
 
 
 
-        <!-- =================================================
-             TABLA
-        ================================================== -->
+        <!-- TABLA -->
 
         <div class="tabla-contenedor">
 
             <table>
 
                 <thead>
-
-
-                    <!-- =====================================
-                         FILA SUPERIOR
-                    ====================================== -->
 
                     <tr>
 
@@ -861,10 +834,6 @@
 
                     </tr>
 
-
-                    <!-- =====================================
-                         FILA INFERIOR
-                    ====================================== -->
 
                     <tr>
 
@@ -917,10 +886,6 @@
                 </thead>
 
 
-                <!-- =================================================
-                     DATOS
-                ================================================== -->
-
                 <tbody>
 
                     <tr>
@@ -929,6 +894,10 @@
                         <!-- MATERIA -->
 
                         <td class="celda-materia">
+
+                            <span class="codigo-materia">
+                                210
+                            </span>
 
                             Neurología y neurocirugía - NM
 
@@ -974,8 +943,8 @@
                         <!-- CANTIDAD -->
 
                         <td
-                            id="cantidad"
                             class="celda-numero"
+                            id="cantidad-preguntas"
                         >
                             0
                         </td>
@@ -984,8 +953,8 @@
                         <!-- RESPONDIDAS -->
 
                         <td
-                            id="respondidas"
                             class="celda-numero"
+                            id="preguntas-respondidas"
                         >
                             0
                         </td>
@@ -994,8 +963,8 @@
                         <!-- SIN RESPONDER -->
 
                         <td
-                            id="sinResponder"
                             class="celda-numero"
+                            id="preguntas-sin-responder"
                         >
                             0
                         </td>
@@ -1004,8 +973,8 @@
                         <!-- CORRECTAS -->
 
                         <td
-                            id="correctas"
                             class="celda-correctas"
+                            id="preguntas-correctas"
                         >
                             0
                         </td>
@@ -1014,8 +983,8 @@
                         <!-- OBTENIDA -->
 
                         <td
-                            id="obtenida"
                             class="celda-obtenida"
+                            id="nota-obtenida"
                         >
                             0 / 100
                         </td>
@@ -1024,8 +993,8 @@
                         <!-- FINAL -->
 
                         <td
-                            id="notaFinal"
                             class="celda-final"
+                            id="nota-final"
                         >
                             0 / 60
                         </td>
@@ -1041,16 +1010,14 @@
 
 
 
-        <!-- =================================================
-             BOTÓN CONTINUAR
-        ================================================== -->
+        <!-- BOTÓN -->
 
         <div class="zona-boton">
 
             <button
                 type="button"
                 class="boton-continuar"
-                onclick="window.location.href='examen.html?nuevo=1'"
+                onclick="continuar()"
             >
 
                 <i class="fa-solid fa-check"></i>
@@ -1068,139 +1035,209 @@
 
     <!-- =====================================================
          JAVASCRIPT
+         RESULTADOS DINÁMICOS
     ===================================================== -->
 
     <script>
 
-        /* ================================================
-           NOTA
-        ================================================= */
+        /*
+         * =====================================================
+         * RECUPERAR RESULTADOS DEL EXAMEN
+         * =====================================================
+         */
 
-        const notaFinal =
-            parseInt(
-                localStorage.getItem(
-                    'udabol_nota_final'
-                )
-            ) || 0;
-
-
-        /* ================================================
-           ACIERTOS
-        ================================================= */
-
-        const aciertos =
-            parseInt(
-                localStorage.getItem(
-                    'udabol_aciertos'
-                )
-            ) || 0;
+        const aciertos = Number(
+            localStorage.getItem('udabol_aciertos') || 0
+        );
 
 
-        /* ================================================
-           TOTAL PREGUNTAS
-        ================================================= */
-
-        const totalPreguntas =
-            parseInt(
-                localStorage.getItem(
-                    'udabol_total_preguntas'
-                )
-            ) || 5;
+        const totalPreguntas = Number(
+            localStorage.getItem('udabol_total_preguntas') || 0
+        );
 
 
-        /* ================================================
-           RESPUESTAS
-        ================================================= */
+        const notaGuardada = Number(
+            localStorage.getItem('udabol_nota_final') || 0
+        );
 
-        let respuestas = [];
+
+        /*
+         * =====================================================
+         * RECUPERAR RESPUESTAS DEL ÚLTIMO INTENTO
+         * =====================================================
+         */
+
+        let respuestasUltimoIntento = {};
 
         try {
 
-            respuestas = JSON.parse(
+            respuestasUltimoIntento = JSON.parse(
                 localStorage.getItem(
                     'udabol_ultimo_intento_respuestas'
-                ) || '[]'
+                ) || '{}'
             );
 
         } catch (error) {
 
-            respuestas = [];
+            respuestasUltimoIntento = {};
 
         }
 
 
-        /* ================================================
-           RESPONDIDAS
-        ================================================= */
+        /*
+         * =====================================================
+         * CALCULAR RESPONDIDAS
+         * =====================================================
+         */
 
-        const respondidas =
-            respuestas.filter(
-                respuesta =>
-                    respuesta !== null &&
-                    respuesta !== undefined &&
-                    respuesta !== ''
+        let respondidas = 0;
+
+        Object.keys(respuestasUltimoIntento).forEach(function(clave) {
+
+            const respuesta =
+                respuestasUltimoIntento[clave];
+
+            if (
+                respuesta !== null &&
+                respuesta !== undefined &&
+                String(respuesta).trim() !== ''
+            ) {
+
+                respondidas++;
+
+            }
+
+        });
+
+
+        /*
+         * =====================================================
+         * SI EL TOTAL NO EXISTE, INTENTAMOS OBTENERLO
+         * DEL NÚMERO DE RESPUESTAS / ACIERTOS
+         * =====================================================
+         */
+
+        let total = totalPreguntas;
+
+        if (total <= 0) {
+
+            total = Object.keys(
+                respuestasUltimoIntento
             ).length;
 
-
-        /* ================================================
-           SIN RESPONDER
-        ================================================= */
-
-        const sinResponder =
-            Math.max(
-                0,
-                totalPreguntas - respondidas
-            );
+        }
 
 
-        /* ================================================
-           PONDERACIÓN
-        ================================================= */
+        /*
+         * =====================================================
+         * PREGUNTAS SIN RESPONDER
+         * =====================================================
+         */
 
-        const ponderacion =
-            Math.round(
-                notaFinal * 0.60
-            );
+        let sinResponder =
+            total - respondidas;
+
+        if (sinResponder < 0) {
+
+            sinResponder = 0;
+
+        }
 
 
-        /* ================================================
-           MOSTRAR DATOS
-        ================================================= */
+        /*
+         * =====================================================
+         * NOTA SOBRE 100
+         * =====================================================
+         */
+
+        let notaSobre100 = notaGuardada;
+
+
+        /*
+         * Si por alguna razón no existe la nota guardada,
+         * la calculamos usando los aciertos.
+         */
+
+        if (
+            !Number.isFinite(notaSobre100) ||
+            notaSobre100 === 0 && aciertos > 0
+        ) {
+
+            if (total > 0) {
+
+                notaSobre100 =
+                    (aciertos / total) * 100;
+
+            } else {
+
+                notaSobre100 = 0;
+
+            }
+
+        }
+
+
+        /*
+         * =====================================================
+         * NOTA SOBRE 60
+         * =====================================================
+         */
+
+        const notaSobre60 =
+            (notaSobre100 * 60) / 100;
+
+
+        /*
+         * =====================================================
+         * MOSTRAR RESULTADOS
+         * ===================================================== */
 
         document.getElementById(
-            'cantidad'
-        ).textContent =
-            totalPreguntas;
+            'cantidad-preguntas'
+        ).textContent = total;
 
 
         document.getElementById(
-            'respondidas'
-        ).textContent =
-            respondidas;
+            'preguntas-respondidas'
+        ).textContent = respondidas;
 
 
         document.getElementById(
-            'sinResponder'
-        ).textContent =
-            sinResponder;
+            'preguntas-sin-responder'
+        ).textContent = sinResponder;
 
 
         document.getElementById(
-            'correctas'
-        ).textContent =
-            aciertos;
+            'preguntas-correctas'
+        ).textContent = aciertos;
 
 
         document.getElementById(
-            'obtenida'
+            'nota-obtenida'
         ).textContent =
-            notaFinal + ' / 100';
+            Math.round(notaSobre100) + ' / 100';
 
 
         document.getElementById(
-            'notaFinal'
+            'nota-final'
         ).textContent =
-            ponderacion + ' / 60';
+            Math.round(notaSobre60) + ' / 60';
+
+
+        /*
+         * =====================================================
+         * BOTÓN CONTINUAR
+         * ===================================================== */
+
+        function continuar() {
+
+            /*
+             * Por ahora no se inicia un nuevo intento.
+             *
+             * El botón queda visualmente igual a la captura.
+             */
+
+        }
 
     </script>
 
@@ -1208,3 +1245,4 @@
 </body>
 
 </html>
+```
