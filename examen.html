@@ -1283,16 +1283,19 @@ let respuestasUsuario =
 
         // Guardar el resultado para resultado.html
         localStorage.setItem('udabol_nota_final', notaFinal);
-        localStorage.setItem('udabol_aciertos', aciertos);
-        localStorage.setItem('udabol_total_preguntas', totalPreguntas);
+localStorage.setItem('udabol_aciertos', aciertos);
+localStorage.setItem('udabol_total_preguntas', totalPreguntas);
 
-        // Borrar el estado del intento terminado
-        localStorage.removeItem('udabol_pregunta_actual');
-        localStorage.removeItem('udabol_respuestas');
-        localStorage.removeItem('udabol_tiempo_restante');
+localStorage.setItem(
+    'udabol_ultimo_intento_respuestas',
+    JSON.stringify(respuestasUsuario)
+);
 
-        // Ir a la página de resultados
-        window.location.href = 'resultado.html';
+localStorage.removeItem('udabol_pregunta_actual');
+localStorage.removeItem('udabol_respuestas');
+localStorage.removeItem('udabol_tiempo_restante');
+
+window.location.href = 'resultado.html';
     }
 };
 
