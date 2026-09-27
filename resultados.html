@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Carpeta Pedagógica Digital - UDABOL</title>
@@ -17,10 +15,6 @@
     >
 
     <style>
-
-        /* =========================================================
-           CONFIGURACIÓN GENERAL
-        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -34,16 +28,16 @@
         }
 
         body {
-            background: #f2f2f2;
+            background: #F2F2F2;
             color: #333333;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            HEADER PRINCIPAL
-        ========================================================= */
+        ===================================================== */
 
         .header-principal {
             width: 100%;
@@ -52,12 +46,10 @@
         }
 
         .header-contenido {
-            width: 100%;
             max-width: 1400px;
-            margin: 0 auto;
-
             min-height: 64px;
 
+            margin: 0 auto;
             padding: 10px 20px;
 
             display: flex;
@@ -68,27 +60,23 @@
         }
 
 
-        /* =========================================================
-           LOGO / IDENTIDAD
-        ========================================================= */
+        /* =====================================================
+           LOGO
+        ===================================================== */
 
         .logo-area {
             display: flex;
             align-items: center;
             gap: 12px;
-
-            min-width: 0;
         }
 
         .logo-udabol {
             color: #FFFFFF;
 
             font-size: 21px;
-            line-height: 1;
-
             font-weight: bold;
 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
 
             white-space: nowrap;
         }
@@ -104,19 +92,19 @@
             color: #FFFFFF;
 
             font-size: 11px;
-            line-height: 1.2;
-
-            text-transform: uppercase;
+            font-weight: normal;
 
             letter-spacing: 1px;
+
+            text-transform: uppercase;
 
             white-space: nowrap;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            USUARIO
-        ========================================================= */
+        ===================================================== */
 
         .usuario-area {
             display: flex;
@@ -143,7 +131,6 @@
         .cerrar-sesion {
             display: inline-flex;
             align-items: center;
-            justify-content: flex-end;
 
             gap: 5px;
 
@@ -151,11 +138,9 @@
 
             color: #FFFFFF;
 
-            text-decoration: none;
-
             font-size: 10px;
 
-            white-space: nowrap;
+            text-decoration: none;
         }
 
         .cerrar-sesion:hover {
@@ -163,15 +148,13 @@
         }
 
 
-        /* =========================================================
+        /* =====================================================
            AVATAR
-        ========================================================= */
+        ===================================================== */
 
         .avatar {
             width: 38px;
             height: 38px;
-
-            flex-shrink: 0;
 
             border-radius: 50%;
 
@@ -184,14 +167,12 @@
             justify-content: center;
 
             font-size: 16px;
-
-            border: 1px solid rgba(255,255,255,0.5);
         }
 
 
-        /* =========================================================
-           FRANJA AMARILLA / SISTEMA
-        ========================================================= */
+        /* =====================================================
+           FRANJA DE AVISO
+        ===================================================== */
 
         .franja-sistema {
             width: 100%;
@@ -200,55 +181,67 @@
 
             color: #333333;
 
-            border-bottom: 1px solid #e0a800;
+            border-bottom: 1px solid #D9A500;
         }
 
         .franja-contenido {
-            width: 100%;
             max-width: 1400px;
 
-            margin: 0 auto;
+            min-height: 29px;
 
-            min-height: 31px;
+            margin: 0 auto;
 
             padding: 5px 20px;
 
             display: flex;
             align-items: center;
-            justify-content: space-between;
-
-            gap: 15px;
-
-            font-size: 11px;
         }
 
         .texto-sistema {
+            font-size: 11px;
             color: #333333;
+        }
 
-            white-space: nowrap;
+
+        /* =====================================================
+           SELECTOR DE IDIOMA
+        ===================================================== */
+
+        .idioma-barra {
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+            min-height: 34px;
+
+            padding: 5px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            background: #F2F2F2;
+
+            border-bottom: 1px solid #DDDDDD;
         }
 
         .selector-idioma {
             display: flex;
             align-items: center;
 
-            gap: 5px;
+            gap: 6px;
 
-            white-space: nowrap;
-        }
-
-        .selector-idioma label {
             color: #333333;
+
+            font-size: 11px;
         }
 
         .selector-idioma select {
-            appearance: auto;
-
             height: 22px;
 
-            padding: 1px 22px 1px 6px;
+            padding: 1px 20px 1px 6px;
 
-            border: 1px solid #bdbdbd;
+            border: 1px solid #CCCCCC;
 
             border-radius: 2px;
 
@@ -256,50 +249,44 @@
 
             color: #333333;
 
-            font-family: Arial, Helvetica, sans-serif;
-
             font-size: 11px;
 
             outline: none;
-
-            cursor: pointer;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            CONTENEDOR PRINCIPAL
-        ========================================================= */
+        ===================================================== */
 
         .contenedor-principal {
-            width: 100%;
             max-width: 1400px;
 
             margin: 0 auto;
 
-            padding: 20px 20px 35px;
+            padding: 18px 20px 35px;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            PESTAÑAS
-        ========================================================= */
+        ===================================================== */
 
         .tabs {
-            width: 100%;
-
             display: flex;
             align-items: flex-end;
 
             gap: 2px;
 
-            border-bottom: 1px solid #d5d5d5;
+            border-bottom: 1px solid #D5D5D5;
 
             margin-bottom: 13px;
         }
 
         .tab {
-            border: 1px solid #d5d5d5;
+            padding: 8px 17px;
 
+            border: 1px solid #D5D5D5;
             border-bottom: none;
 
             border-radius: 5px 5px 0 0;
@@ -308,15 +295,8 @@
 
             color: #333333;
 
-            padding: 8px 16px;
-
-            font-family: Arial, Helvetica, sans-serif;
-
             font-size: 12px;
-
-            line-height: 1;
-
-            cursor: default;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .tab-activa {
@@ -335,51 +315,48 @@
         }
 
 
-        /* =========================================================
-           IDENTIFICACIÓN DEL EXAMEN
-        ========================================================= */
+        /* =====================================================
+           IDENTIFICACIÓN
+        ===================================================== */
 
         .identificacion {
-            width: 100%;
-
             margin-bottom: 10px;
 
             color: #333333;
 
             font-size: 12px;
 
-            line-height: 1.4;
-
             font-weight: normal;
         }
 
 
-        /* =========================================================
-           TABLA
-        ========================================================= */
+        /* =====================================================
+           CONTENEDOR TABLA
+        ===================================================== */
 
         .tabla-contenedor {
             width: 100%;
 
             background: #FFFFFF;
 
-            border: 1px solid #d5d5d5;
+            border: 1px solid #D5D5D5;
 
             border-radius: 3px;
 
             overflow-x: auto;
-
-            -webkit-overflow-scrolling: touch;
         }
+
+
+        /* =====================================================
+           TABLA
+        ===================================================== */
 
         table {
             width: 100%;
 
-            min-width: 1100px;
+            min-width: 1120px;
 
             border-collapse: collapse;
-
-            table-layout: auto;
 
             background: #FFFFFF;
 
@@ -387,19 +364,18 @@
         }
 
 
-        /* =========================================================
-           CABECERAS
-        ========================================================= */
+        /* =====================================================
+           CABECERA TABLA
+        ===================================================== */
 
         thead th {
-            border-right: 1px solid #d6d6d6;
-            border-bottom: 1px solid #d6d6d6;
-
-            color: #333333;
+            border-right: 1px solid #D5D5D5;
+            border-bottom: 1px solid #D5D5D5;
 
             text-align: center;
-
             vertical-align: middle;
+
+            color: #333333;
 
             line-height: 1.2;
         }
@@ -424,106 +400,48 @@
             font-weight: normal;
         }
 
-        thead th:last-child {
-            border-right: none;
-        }
 
-
-        /* =========================================================
-           CELDA EXAMEN / MATERIA
-        ========================================================= */
-
-        .cabecera-examen {
-            width: 155px;
-
-            min-width: 155px;
-        }
-
-        .cabecera-examen .examen-titulo {
-            display: block;
-
-            font-weight: bold;
-
-            font-size: 11px;
-        }
-
-        .cabecera-examen .examen-subtitulo {
-            display: block;
-
-            margin-top: 2px;
-
-            font-weight: normal;
-
-            font-size: 10px;
-        }
-
-
-        /* =========================================================
-           NOTA / FINAL
-        ========================================================= */
-
-        .cabecera-final {
-            width: 85px;
-
-            min-width: 85px;
-
-            background: #7AC143 !important;
-
-            color: #FFFFFF !important;
-
-            font-weight: bold !important;
-        }
-
-
-        /* =========================================================
-           CUERPO DE TABLA
-        ========================================================= */
+        /* =====================================================
+           CUERPO
+        ===================================================== */
 
         tbody td {
-            height: 57px;
+            height: 58px;
 
-            padding: 8px 7px;
+            padding: 8px;
 
-            border-right: 1px solid #dcdcdc;
-
-            border-bottom: 1px solid #dcdcdc;
+            border-right: 1px solid #DDDDDD;
+            border-bottom: 1px solid #DDDDDD;
 
             background: #FFFFFF;
 
             color: #333333;
 
             text-align: center;
-
             vertical-align: middle;
-
-            line-height: 1.25;
-        }
-
-        tbody td:last-child {
-            border-right: none;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            MATERIA
-        ========================================================= */
+        ===================================================== */
 
         .celda-materia {
-            min-width: 155px;
-
-            color: #333333;
+            min-width: 165px;
 
             text-align: center;
 
-            font-size: 11px;
+            font-size: 10px;
 
             font-weight: normal;
+
+            line-height: 1.3;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            NOMBRE
-        ========================================================= */
+        ===================================================== */
 
         .celda-nombre {
             min-width: 190px;
@@ -532,28 +450,26 @@
 
             text-transform: uppercase;
 
-            font-size: 11px;
-
             white-space: nowrap;
+
+            font-size: 10px;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            CÓDIGO
-        ========================================================= */
+        ===================================================== */
 
         .celda-codigo {
             min-width: 70px;
 
             text-align: center;
-
-            font-size: 11px;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            FECHAS
-        ========================================================= */
+        ===================================================== */
 
         .celda-tiempo {
             min-width: 135px;
@@ -566,44 +482,48 @@
         }
 
 
-        /* =========================================================
-           PREGUNTAS
-        ========================================================= */
+        /* =====================================================
+           NÚMEROS
+        ===================================================== */
 
         .celda-numero {
-            min-width: 80px;
+            min-width: 75px;
 
             text-align: center;
-
-            font-size: 11px;
         }
 
+
+        /* =====================================================
+           CORRECTAS
+        ===================================================== */
 
         .celda-correctas {
-            color: #333333;
-
             font-weight: bold;
-
-            background: #FFFFFF;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            OBTENIDA
-        ========================================================= */
+        ===================================================== */
 
         .celda-obtenida {
             min-width: 90px;
 
             white-space: nowrap;
-
-            font-weight: normal;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            FINAL
-        ========================================================= */
+        ===================================================== */
+
+        .cabecera-final {
+            background: #7AC143 !important;
+
+            color: #FFFFFF !important;
+
+            font-weight: bold !important;
+        }
 
         .celda-final {
             min-width: 85px;
@@ -622,21 +542,22 @@
         }
 
 
-        /* =========================================================
-           BOTÓN CONTINUAR
-        ========================================================= */
+        /* =====================================================
+           BOTÓN
+        ===================================================== */
 
         .zona-boton {
-            width: 100%;
-
             margin-top: 16px;
 
             display: flex;
-
             justify-content: flex-start;
         }
 
         .boton-continuar {
+            min-height: 34px;
+
+            padding: 8px 17px;
+
             border: none;
 
             border-radius: 3px;
@@ -645,10 +566,6 @@
 
             color: #FFFFFF;
 
-            padding: 8px 17px;
-
-            min-height: 34px;
-
             font-family: Arial, Helvetica, sans-serif;
 
             font-size: 12px;
@@ -656,34 +573,22 @@
             font-weight: bold;
 
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
 
             gap: 7px;
 
             cursor: pointer;
-
-            box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-
-            transition:
-                background-color .15s ease,
-                opacity .15s ease;
         }
 
         .boton-continuar:hover {
-            background: #6faf39;
-        }
-
-        .boton-continuar:active {
-            opacity: 0.9;
+            background: #6EAD3C;
         }
 
 
-        /* =========================================================
-           RESPONSIVE / CELULAR
-        ========================================================= */
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
 
         @media (max-width: 768px) {
 
@@ -701,10 +606,6 @@
                 justify-content: center;
             }
 
-            .titulo-carpeta {
-                font-size: 9px;
-            }
-
             .usuario-area {
                 justify-content: center;
             }
@@ -715,8 +616,6 @@
 
             .usuario-nombre {
                 white-space: normal;
-
-                font-size: 10px;
             }
 
             .cerrar-sesion {
@@ -725,20 +624,10 @@
 
             .franja-contenido {
                 padding: 6px 12px;
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-                gap: 5px;
             }
 
-            .texto-sistema {
-                white-space: normal;
-            }
-
-            .selector-idioma {
-                width: 100%;
+            .idioma-barra {
+                padding: 5px 12px;
 
                 justify-content: flex-start;
             }
@@ -747,42 +636,14 @@
                 padding: 15px 10px 30px;
             }
 
-            .tabs {
-                margin-bottom: 11px;
-            }
-
-            .tab {
-                padding: 8px 13px;
-            }
-
-            .identificacion {
-                font-size: 11px;
-            }
-
-            .tabla-contenedor {
-                border-radius: 2px;
-            }
-
             table {
-                min-width: 1100px;
-            }
-
-            .zona-boton {
-                margin-top: 14px;
+                min-width: 1120px;
             }
 
         }
 
 
-        /* =========================================================
-           PANTALLAS MUY PEQUEÑAS
-        ========================================================= */
-
         @media (max-width: 420px) {
-
-            .logo-area {
-                gap: 8px;
-            }
 
             .logo-udabol {
                 font-size: 18px;
@@ -790,19 +651,11 @@
 
             .titulo-carpeta {
                 font-size: 8px;
-
-                letter-spacing: .5px;
-            }
-
-            .separador-logo {
-                height: 23px;
             }
 
             .avatar {
                 width: 34px;
                 height: 34px;
-
-                font-size: 14px;
             }
 
         }
@@ -815,9 +668,9 @@
 <body>
 
 
-    <!-- =========================================================
-         CABECERA INSTITUCIONAL
-    ========================================================== -->
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
     <header class="header-principal">
 
@@ -877,39 +730,17 @@
 
 
 
-    <!-- =========================================================
-         FRANJA DE SISTEMA
-    ========================================================== -->
+    <!-- =====================================================
+         FRANJA AMARILLA
+    ===================================================== -->
 
     <div class="franja-sistema">
 
         <div class="franja-contenido">
 
-
             <span class="texto-sistema">
-
-                Usuario de carpeta pedagógica:
-                virtual.udabol.edu.bo
-
+                Usuario de carpeta pedagógica: virtual.udabol.edu.bo
             </span>
-
-
-            <div class="selector-idioma">
-
-                <label for="idioma">
-                    Seleccionar idioma
-                </label>
-
-                <select id="idioma">
-
-                    <option selected>
-                        Español
-                    </option>
-
-                </select>
-
-            </div>
-
 
         </div>
 
@@ -917,19 +748,44 @@
 
 
 
-    <!-- =========================================================
-         CONTENIDO PRINCIPAL
-    ========================================================== -->
+    <!-- =====================================================
+         SELECTOR DE IDIOMA
+    ===================================================== -->
+
+    <div class="idioma-barra">
+
+        <div class="selector-idioma">
+
+            <label for="idioma">
+                Seleccionar idioma
+            </label>
+
+            <select id="idioma">
+
+                <option selected>
+                    Español
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ===================================================== -->
 
     <main class="contenedor-principal">
 
 
-        <!-- =====================================================
+        <!-- =================================================
              PESTAÑAS
-        ====================================================== -->
+        ================================================== -->
 
         <div class="tabs">
-
 
             <button
                 type="button"
@@ -950,14 +806,13 @@
 
             </button>
 
-
         </div>
 
 
 
-        <!-- =====================================================
-             IDENTIFICACIÓN
-        ====================================================== -->
+        <!-- =================================================
+             ID DEL EXAMEN
+        ================================================== -->
 
         <div class="identificacion">
 
@@ -967,166 +822,106 @@
 
 
 
-        <!-- =====================================================
-             TABLA DE RESULTADOS
-        ====================================================== -->
+        <!-- =================================================
+             TABLA
+        ================================================== -->
 
         <div class="tabla-contenedor">
 
-
             <table>
-
 
                 <thead>
 
 
-                    <!-- =================================================
-                         PRIMER NIVEL
-                    ================================================== -->
+                    <!-- =====================================
+                         FILA SUPERIOR
+                    ====================================== -->
 
                     <tr>
 
-
-                        <!-- EXAMEN -->
-
-                        <th
-                            rowspan="2"
-                            class="cabecera-examen"
-                        >
-
-                            <span class="examen-titulo">
-                                EXAMEN
-                            </span>
-
-                            <span class="examen-subtitulo">
-                                MATERIA
-                            </span>
-
+                        <th>
+                            EXAMEN
                         </th>
-
-
-                        <!-- ESTUDIANTE -->
 
                         <th colspan="2">
                             ESTUDIANTE
                         </th>
 
-
-                        <!-- TIEMPO -->
-
                         <th colspan="2">
                             TIEMPO
                         </th>
-
-
-                        <!-- PREGUNTAS -->
 
                         <th colspan="4">
                             PREGUNTAS
                         </th>
 
-
-                        <!-- NOTA -->
-
                         <th colspan="2">
                             NOTA
                         </th>
 
-
                     </tr>
 
 
-
-                    <!-- =================================================
-                         SEGUNDO NIVEL
-                    ================================================== -->
+                    <!-- =====================================
+                         FILA INFERIOR
+                    ====================================== -->
 
                     <tr>
 
-
-                        <!-- NOMBRE -->
+                        <th>
+                            MATERIA
+                        </th>
 
                         <th>
                             NOMBRE COMPLETO
                         </th>
 
-
-                        <!-- CÓDIGO -->
-
                         <th>
                             CÓDIGO
                         </th>
-
-
-                        <!-- INICIO -->
 
                         <th>
                             INICIO
                         </th>
 
-
-                        <!-- FIN -->
-
                         <th>
                             FIN
                         </th>
-
-
-                        <!-- CANTIDAD -->
 
                         <th>
                             CANTIDAD
                         </th>
 
-
-                        <!-- RESPONDIDAS -->
-
                         <th>
                             RESPONDIDAS
                         </th>
-
-
-                        <!-- SIN RESPONDER -->
 
                         <th>
                             SIN RESPONDER
                         </th>
 
-
-                        <!-- CORRECTAS -->
-
                         <th>
                             CORRECTAS
                         </th>
-
-
-                        <!-- OBTENIDA -->
 
                         <th>
                             OBTENIDA
                         </th>
 
-
-                        <!-- FINAL -->
-
                         <th class="cabecera-final">
                             FINAL
                         </th>
 
-
                     </tr>
-
 
                 </thead>
 
 
-
-                <!-- =====================================================
+                <!-- =================================================
                      DATOS
-                ====================================================== -->
+                ================================================== -->
 
                 <tbody>
-
 
                     <tr>
 
@@ -1238,23 +1033,19 @@
 
                     </tr>
 
-
                 </tbody>
 
-
             </table>
-
 
         </div>
 
 
 
-        <!-- =====================================================
+        <!-- =================================================
              BOTÓN CONTINUAR
-        ====================================================== -->
+        ================================================== -->
 
         <div class="zona-boton">
-
 
             <button
                 type="button"
@@ -1268,7 +1059,6 @@
 
             </button>
 
-
         </div>
 
 
@@ -1276,17 +1066,15 @@
 
 
 
-    <!-- =========================================================
+    <!-- =====================================================
          JAVASCRIPT
-         CARGA LOS RESULTADOS DEL ÚLTIMO INTENTO
-    ========================================================== -->
+    ===================================================== -->
 
     <script>
 
-
-        /* =========================================================
-           NOTA FINAL
-        ========================================================== */
+        /* ================================================
+           NOTA
+        ================================================= */
 
         const notaFinal =
             parseInt(
@@ -1296,10 +1084,9 @@
             ) || 0;
 
 
-
-        /* =========================================================
+        /* ================================================
            ACIERTOS
-        ========================================================== */
+        ================================================= */
 
         const aciertos =
             parseInt(
@@ -1309,10 +1096,9 @@
             ) || 0;
 
 
-
-        /* =========================================================
-           TOTAL DE PREGUNTAS
-        ========================================================== */
+        /* ================================================
+           TOTAL PREGUNTAS
+        ================================================= */
 
         const totalPreguntas =
             parseInt(
@@ -1322,10 +1108,9 @@
             ) || 5;
 
 
-
-        /* =========================================================
-           RESPUESTAS DEL ÚLTIMO INTENTO
-        ========================================================== */
+        /* ================================================
+           RESPUESTAS
+        ================================================= */
 
         let respuestas = [];
 
@@ -1344,10 +1129,9 @@
         }
 
 
-
-        /* =========================================================
-           PREGUNTAS RESPONDIDAS
-        ========================================================== */
+        /* ================================================
+           RESPONDIDAS
+        ================================================= */
 
         const respondidas =
             respuestas.filter(
@@ -1358,10 +1142,9 @@
             ).length;
 
 
-
-        /* =========================================================
-           PREGUNTAS SIN RESPONDER
-        ========================================================== */
+        /* ================================================
+           SIN RESPONDER
+        ================================================= */
 
         const sinResponder =
             Math.max(
@@ -1370,12 +1153,9 @@
             );
 
 
-
-        /* =========================================================
-           PONDERACIÓN FINAL
-           
-           70 / 100 × 60 = 42 / 60
-        ========================================================== */
+        /* ================================================
+           PONDERACIÓN
+        ================================================= */
 
         const ponderacion =
             Math.round(
@@ -1383,10 +1163,9 @@
             );
 
 
-
-        /* =========================================================
-           MOSTRAR CANTIDAD
-        ========================================================== */
+        /* ================================================
+           MOSTRAR DATOS
+        ================================================= */
 
         document.getElementById(
             'cantidad'
@@ -1394,21 +1173,11 @@
             totalPreguntas;
 
 
-
-        /* =========================================================
-           MOSTRAR RESPONDIDAS
-        ========================================================== */
-
         document.getElementById(
             'respondidas'
         ).textContent =
             respondidas;
 
-
-
-        /* =========================================================
-           MOSTRAR SIN RESPONDER
-        ========================================================== */
 
         document.getElementById(
             'sinResponder'
@@ -1416,21 +1185,11 @@
             sinResponder;
 
 
-
-        /* =========================================================
-           MOSTRAR CORRECTAS
-        ========================================================== */
-
         document.getElementById(
             'correctas'
         ).textContent =
             aciertos;
 
-
-
-        /* =========================================================
-           MOSTRAR NOTA OBTENIDA
-        ========================================================== */
 
         document.getElementById(
             'obtenida'
@@ -1438,16 +1197,10 @@
             notaFinal + ' / 100';
 
 
-
-        /* =========================================================
-           MOSTRAR NOTA FINAL
-        ========================================================== */
-
         document.getElementById(
             'notaFinal'
         ).textContent =
             ponderacion + ' / 60';
-
 
     </script>
 
@@ -1455,4 +1208,3 @@
 </body>
 
 </html>
-```
