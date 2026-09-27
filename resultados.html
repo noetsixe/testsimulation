@@ -112,8 +112,6 @@
 		<div class="breadcrumb">
 			<a href="#" onclick="loadCourses()"><span class="icon-user2"> </span>Materias</a>
 			<span class="icon-stack"> <span>Examenes</span>
-        <div class="breadcrumb-item breadcrumb-current">
-        <span class="breadcrumb-icon"></span>
         <span>Segundo Parcial Examen Paquidermiologia L01-2026</span>
 		</div>
 	</div>
@@ -232,7 +230,7 @@
 
         <script>
 function continuar() {
-    // Por ahora no se inicia un nuevo intento.
+    window.location.href = 'index.html';
 }
 </script>
 
@@ -297,19 +295,30 @@ function continuar() {
 }
 
 .btn-intento {
-    display: inline-block;
+    display: block;
+    width: 165px;
+    margin: 20px auto 0;
+
     padding: 10px 20px;
-    background: #1976d2;
-    color: white;
-    text-decoration: none;
+
+    background: #80c41c;
+    color: #fff;
+
+    border: none;
     border-radius: 4px;
+
+    text-align: center;
+    text-decoration: none;
+
     font-weight: bold;
+    font-size: 16px;
+
+    cursor: pointer;
 }
 
 .btn-intento:hover {
-    background: #125ca1;
+    background: #6faf10;
 }
-
 
 .tabla-contenedor .celda-obtenida {
     text-align: center;
