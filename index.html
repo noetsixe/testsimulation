@@ -123,18 +123,235 @@
 
 
 
-<div class="exam-card">
-    <div class="exam-info">
-        <h3>Examen de Simulación</h3>
-        <p>Simulacro de evaluación</p>
-    </div>
+<div class="simulacion-examen">
 
-    <a href="examen.html" class="btn-intento">
-    Dar intento
-</a>
+    <h2 class="examen-titulo" id="examen-identificacion"></h2>
+
+    <div class="examen-separador"></div>
+
+    <div class="examen-contenido">
+
+        <p class="examen-materia" id="examen-materia"></p>
+
+        <p class="fecha-titulo">Fecha y hora programada</p>
+        <p class="fecha-inicio" id="examen-inicio"></p>
+
+        <div class="info-examen">
+
+            <p class="info-examen-titulo">
+                <span class="info-icono">i</span>
+                INFORMACIÓN DEL EXAMEN
+            </p>
+
+            <p class="info-linea" id="examen-preguntas"></p>
+            <p class="info-linea" id="examen-duracion"></p>
+            <p class="info-linea" id="examen-nota-maxima"></p>
+            <p class="info-linea" id="examen-nota-minima"></p>
+
+        </div>
+
+        <table class="nuevo-intento-tabla">
+            <tbody>
+                <tr>
+                    <td>
+                        <a id="btn-nuevo-intento"
+                           class="nuevo-intento-celda"
+                           href="examen.html?nuevo=1">
+                            Nuevo intento
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>
 
+						<script>
+const examenConfig = {
+    identificacion: '1P-2-2026-10190625',
+    titulo: 'Examen Primer Parcial 2-2026',
+    materia: 'MED-901-11428: Oftalmología - NM - E',
+    inicio: '2026-09-22 13:30:00',
+    preguntas: 20,
+    duracion: 40,
+    notaMaxima: 100,
+    notaMinima: 51,
+    enlaceIntento: 'examen.html?nuevo=1'
+};
+
+document.getElementById('examen-identificacion').textContent =
+    examenConfig.identificacion + ': ' + examenConfig.titulo;
+
+document.getElementById('examen-materia').textContent =
+    examenConfig.materia;
+
+document.getElementById('examen-inicio').textContent =
+    'Inicio: ' + examenConfig.inicio;
+
+document.getElementById('examen-preguntas').textContent =
+    'Cantidad de preguntas: ' + examenConfig.preguntas + ' preguntas';
+
+document.getElementById('examen-duracion').textContent =
+    'Duración: ' + examenConfig.duracion + ' minutos';
+
+document.getElementById('examen-nota-maxima').textContent =
+    'Nota máxima: ' + examenConfig.notaMaxima + ' puntos';
+
+document.getElementById('examen-nota-minima').textContent =
+    'Nota mínima de aprobación: ' + examenConfig.notaMinima + ' puntos';
+
+document.getElementById('btn-nuevo-intento').href =
+    examenConfig.enlaceIntento;
+</script>
+						
 <style>
+
+	<style id="simulacion-examen-estilo">
+
+.simulacion-examen {
+    width: calc(100% - 78px);
+    max-width: 900px;
+    margin: 34px auto 30px auto;
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 7px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    overflow: hidden;
+    color: #333333;
+}
+
+.simulacion-examen .examen-titulo {
+    margin: 0;
+    padding: 30px 24px 27px 24px;
+    text-align: center;
+    font-size: 27px;
+    line-height: 1.15;
+    font-weight: 400;
+    color: #222222;
+}
+
+.simulacion-examen .examen-separador {
+    height: 1px;
+    background: #e8e8e8;
+    margin: 0 18px;
+}
+
+.simulacion-examen .examen-contenido {
+    padding: 35px 22px 25px 22px;
+    text-align: center;
+}
+
+.simulacion-examen .examen-materia {
+    margin: 0 0 34px 0;
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #333333;
+}
+
+.simulacion-examen .fecha-titulo {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #df2b2b;
+}
+
+.simulacion-examen .fecha-inicio {
+    margin: 0 0 25px 0;
+    font-size: 22px;
+    color: #df2b2b;
+}
+
+.simulacion-examen .info-examen {
+    margin: 0 auto 42px auto;
+    max-width: 780px;
+    padding: 25px 20px 30px 20px;
+    background: #d9edf7;
+    border: 1px solid #bce8f1;
+    border-radius: 6px;
+    color: #31708f;
+}
+
+.simulacion-examen .info-examen-titulo {
+    margin: 0 0 27px 0;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.simulacion-examen .info-icono {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    border: 2px solid #31708f;
+    border-radius: 50%;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.simulacion-examen .info-linea {
+    margin: 0 0 12px 0;
+    font-size: 21px;
+    line-height: 1.35;
+}
+
+.simulacion-examen .info-linea:last-child {
+    margin-bottom: 0;
+}
+
+.nuevo-intento-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.nuevo-intento-tabla td {
+    padding: 0;
+    border: 1px solid #3c763d;
+}
+
+.nuevo-intento-celda {
+    display: block;
+    width: 100%;
+    padding: 17px 20px;
+    background: #dff0d8;
+    color: #3c763d !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none !important;
+}
+
+.nuevo-intento-celda:hover {
+    background: #c1e2b3;
+    color: #2b542c !important;
+    text-decoration: none !important;
+}
+
+@media (max-width: 600px) {
+
+    .simulacion-examen {
+        width: calc(100% - 40px);
+    }
+
+    .simulacion-examen .examen-titulo {
+        font-size: 26px;
+    }
+
+    .simulacion-examen .examen-materia,
+    .simulacion-examen .fecha-titulo,
+    .simulacion-examen .fecha-inicio {
+        font-size: 21px;
+    }
+
+    .simulacion-examen .info-linea {
+        font-size: 20px;
+    }
+
 .exam-card {
     display: flex;
     justify-content: space-between;
