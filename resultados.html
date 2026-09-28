@@ -173,8 +173,8 @@
         <!-- BOTÓN -->
         <div class="zona-boton">
     <button type="button" class="boton-continuar" onclick="continuar()">
-        <i class="fa-solid fa-check"></i>
-        Continuar
+        <span class="check-continuar">✓</span>
+Continuar
     </button>
 </div>
 	</div>
@@ -429,9 +429,13 @@
 }
 
 	/* TEXTO DE LA TABLA */
-.tabla-contenedor th,
-.tabla-contenedor td {
+.tabla-contenedor th,{
     font-weight: 600;
+}
+
+	.check-continuar {
+    margin-right: 6px;
+    font-weight: 400;
 }
 <style>
 
