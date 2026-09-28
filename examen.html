@@ -893,41 +893,264 @@ border-top: 10px solid #004231;
     }
 
 
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
+   /* =========================================
+   AJUSTE PARA CELULAR
+========================================= */
 
-    @media (max-width: 1000px) {
+@media (max-width: 600px) {
 
-        .container-examen {
-            width: 96%;
-        }
-
-        .sidebar-left,
-        .sidebar-right {
-            width: 220px;
-        }
-
-        .main-content {
-            width: auto;
-            flex: 1;
-        }
+    /* Barra superior */
+    .header-top {
+        height: auto;
+        min-height: 37px;
+        padding: 5px 8px;
+        border-top: 6px solid #004231;
+        line-height: normal;
     }
 
-    @media (max-width: 800px) {
-
-        .container-examen {
-            flex-direction: column;
-        }
-
-        .sidebar-left,
-        .sidebar-right,
-        .main-content {
-            width: 100%;
-            flex: none;
-        }
-
+    .support-info {
+        font-size: 10px;
+        white-space: normal;
+        line-height: 1.2;
     }
+
+    .support-info a {
+        display: inline;
+    }
+
+    .language-area {
+        display: none;
+    }
+
+    .header-separator {
+        height: 6px;
+    }
+
+
+    /* Contenedor gris */
+    .exam-wrapper {
+        width: calc(100% - 16px);
+        min-height: calc(100vh - 49px);
+        margin: 8px auto 0 auto;
+        padding: 12px 0 20px 0;
+    }
+
+
+    /* Breadcrumb */
+    .breadcrumb {
+        width: calc(100% - 20px);
+        height: auto;
+        min-height: 32px;
+        margin: 0 auto;
+        font-size: 11px;
+    }
+
+    .breadcrumb-item {
+        padding: 0 8px;
+        min-height: 30px;
+    }
+
+    .breadcrumb-materias {
+        font-size: 11px;
+        padding-right: 14px;
+    }
+
+    .breadcrumb-examenes {
+        font-size: 11px;
+        padding-left: 16px;
+        padding-right: 14px;
+    }
+
+    .breadcrumb-current {
+        min-width: 0;
+        padding-left: 17px;
+        padding-right: 8px;
+        font-size: 11px;
+    }
+
+    .breadcrumb-materias::after,
+    .breadcrumb-materias::before,
+    .breadcrumb-examenes::after {
+        border-top-width: 15px;
+        border-bottom-width: 15px;
+    }
+
+
+    /* Contenedor principal */
+    .container-examen {
+        width: calc(100% - 20px);
+        margin: 15px auto 0 auto;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+
+    /* Panel de preguntas */
+    .sidebar-left {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .titulo-seccion {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .grid-preguntas {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 7px;
+        justify-items: center;
+        margin-bottom: 20px;
+    }
+
+    .btn-preg {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+
+    /* Contenido central */
+    .main-content {
+        width: 100%;
+        flex: none;
+        padding: 15px 8px 35px 8px;
+        min-height: 0;
+    }
+
+    .main-content h3 {
+        font-size: 15px;
+        line-height: 1.35;
+        margin-bottom: 10px;
+    }
+
+    .sub-titulo {
+        font-size: 14px;
+        line-height: 1.35;
+        margin-bottom: 15px;
+    }
+
+    .main-content hr {
+        margin: 12px 0 !important;
+    }
+
+
+    /* Pregunta */
+    #texto-pregunta {
+        font-size: 16px !important;
+        line-height: 1.45;
+        margin-top: 12px !important;
+    }
+
+
+    /* Alternativas */
+    .opciones label {
+        margin: 12px 0;
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .opciones input[type="radio"] {
+        margin-right: 5px;
+    }
+
+
+    /* Botón siguiente */
+    .btn-siguiente {
+        padding: 9px 22px;
+        font-size: 13px;
+        margin: 25px auto 10px auto;
+    }
+
+
+    /* Número interno */
+    #seccion-pregunta > p:last-child {
+        position: static !important;
+        margin: 20px 0 0 0 !important;
+        text-align: center;
+        font-size: 10px !important;
+    }
+
+
+    /* Panel derecho */
+    .sidebar-right {
+        width: 100%;
+        flex: none;
+        gap: 12px;
+    }
+
+    .right-card {
+        width: 100%;
+        padding: 13px;
+    }
+
+
+    /* Temporizador */
+    .right-card-title {
+        font-size: 13px;
+        padding-bottom: 8px;
+        margin-bottom: 9px;
+    }
+
+    .timer-labels {
+        gap: 28px;
+        font-size: 9px;
+    }
+
+    .timer-labels span {
+        width: 42px;
+    }
+
+    .timer-box {
+        gap: 3px;
+        margin-bottom: 10px;
+    }
+
+    .digit {
+        width: 38px;
+        height: 44px;
+        flex: 0 0 38px;
+        font-size: 27px;
+        line-height: 44px;
+        border-radius: 6px;
+    }
+
+    .timer-separator {
+        width: 8px;
+        font-size: 25px;
+        line-height: 44px;
+    }
+
+
+    /* Botón terminar */
+    .action-card {
+        padding: 13px;
+    }
+
+    .btn-terminar {
+        width: 70%;
+        height: 38px;
+        font-size: 12px;
+    }
+
+
+    /* Importante */
+    .important-card {
+        padding: 13px;
+    }
+
+    .important-card ol {
+        font-size: 13px;
+        line-height: 1.45;
+        padding-left: 18px;
+    }
+
+    .important-card li {
+        margin-bottom: 7px;
+    }
+}
 
     </style>
 </head>
