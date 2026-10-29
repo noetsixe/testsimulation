@@ -1,33 +1,85 @@
+
 const URL_SERVIDOR = "https://api.nova-sync.xyz";
 
+let verificandoAcceso = false;
+
 async function verificarAccesoExamen() {
-    const esPaginaDesactivada = window.location.pathname.endsWith('desactivada.html');
+    // Evitar que se ejecuten varias consultas simultáneamente
+    if (verificandoAcceso) return;
+
+    verificandoAcceso = true;
+
+    const rutaActual = window.location.pathname;
+    const esPaginaDesactivada = rutaActual.endsWith("desactivada.html");
 
     try {
-        // Consulta directa al backend para leer el id: 2 de Supabase
-        const res = await fetch(`${URL_SERVIDOR}/api/test-sim-status?t=${Date.now()}`);
-        if (!res.ok) return;
-        
-        const data = await res.json();
-        const activo = data.active; // true o false
+        // Consultar el estado actual del Test Simulation en el servidor
+        const res = await fetch(
+            `${URL_SERVIDOR}/api/test-sim-status?t=${Date.now()}`,
+            {
+                method: "GET",
+                cache: "no-store"
+            }
+        );
 
-        console.log("Estado actual del Test Simulation:", activo);
+        // Mostrar el error real si el servidor responde con un código incorrecto
+        if (!res.ok) {
+            const detalle = await res.text();
 
-        // REGLA ESTRICTA DE REDIRECCIÓN
-        if (!activo && !esPaginaDesactivada) {
-            // Si está apagado (false) y estás en el sitio -> te manda a desactivada
-            window.location.href = 'desactivada.html';
-        } else if (activo && esPaginaDesactivada) {
-            // Si está encendido (true) y estabas atrapado en desactivada -> te libera al index
-            window.location.href = 'index.html';
+            console.error(
+                "Error consultando el estado del Test Simulation:",
+                res.status,
+                detalle
+            );
+
+            return;
         }
-    } catch (e) {
-        console.error("Error al verificar el acceso al simulador:", e);
+
+        const data = await res.json();
+
+        // Comprobar que el servidor devuelva un estado válido
+        if (typeof data.active !== "boolean") {
+            console.error(
+                "El servidor no devolvió un estado válido:",
+                data
+            );
+
+            return;
+        }
+
+        const activo = data.active;
+
+        console.log(
+            "Estado actual del Test Simulation:",
+            activo
+        );
+
+        // Si está APAGADO, bloquear el acceso a las demás páginas
+        if (!activo && !esPaginaDesactivada) {
+            window.location.replace("desactivada.html");
+            return;
+        }
+
+        // Si está ENCENDIDO y el usuario está en desactivada.html,
+        // permitirle volver al index
+        if (activo && esPaginaDesactivada) {
+            window.location.replace("index.html");
+            return;
+        }
+
+    } catch (error) {
+        console.error(
+            "Error al verificar el acceso al simulador:",
+            error
+        );
+
+    } finally {
+        verificandoAcceso = false;
     }
 }
 
-// Ejecutar al cargar la página
+// Comprobar el estado al cargar la página
 verificarAccesoExamen();
 
-// Opcional: Volver a verificar cada 5 segundos por si el admin lo enciende mientras tienes la pestaña abierta
+// Volver a comprobar cada 5 segundos
 setInterval(verificarAccesoExamen, 5000);
