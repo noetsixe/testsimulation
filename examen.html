@@ -1694,7 +1694,9 @@ window.location.href = 'resultados.html';
                 }
             });
 
-            let notaFinal = aciertos * 20;
+            let notaFinal = totalPreguntas > 0
+    ? (aciertos / totalPreguntas) * 100
+    : 0;
 
             document.getElementById('seccion-pregunta').style.display = 'none';
             document.getElementById('pantalla-resultados').style.display = 'block';
