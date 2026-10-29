@@ -211,14 +211,9 @@ Continuar
         let sinResponder = total - respondidas;
         if (sinResponder < 0) sinResponder = 0;
 
-        let notaSobre100 = notaGuardada;
-        if (!Number.isFinite(notaSobre100) || (notaSobre100 === 0 && aciertos > 0)) {
-            if (total > 0) {
-                notaSobre100 = (aciertos / total) * 100;
-            } else {
-                notaSobre100 = 0;
-            }
-        }
+        let notaSobre100 = total > 0
+    ? (aciertos / total) * 100
+    : 0;
 
         const notaSobre60 = (notaSobre100 * 60) / 100;
 
