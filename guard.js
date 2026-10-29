@@ -1,24 +1,24 @@
-// guard.js - Controla la redirección del simulador en tiempo real
-const URL_SERVIDOR = "https://api.nova-sync.xyz"; // Tu servidor actual
+// guard.js - Monitorea exclusivamente el estado del Simulador de Examen
+const URL_SERVIDOR = "https://api.nova-sync.xyz";
 
 async function verificarAccesoExamen() {
     const esPaginaDesactivada = window.location.pathname.endsWith('desactivada.html');
 
     try {
-        // Consultamos el estado actual al servidor (que lee Supabase)
-        const res = await fetch(`${URL_SERVIDOR}/api/admin/server-status?t=${Date.now()}`);
+        // Consultamos el endpoint dedicado exclusivamente al test simulation
+        const res = await fetch(`${URL_SERVIDOR}/api/admin/test-sim-status?t=${Date.now()}`);
         const data = await res.json();
-        const activo = data.active; // true o false
+        const activo = data.active; // true o false específico del simulador
 
         if (!activo && !esPaginaDesactivada) {
-            // Si está apagado, redirige a la página de dominio en venta
+            // Si el simulador está apagado, redirige a la pantalla de mantenimiento/desactivada
             window.location.href = 'desactivada.html';
         } else if (activo && esPaginaDesactivada) {
-            // Si se vuelve a encender y estaban en la página desactivada, los regresa al inicio
+            // Si lo vuelven a encender, saca al usuario de desactivada y lo regresa al inicio
             window.location.href = 'index.html';
         }
     } catch (e) {
-        console.error("Error al verificar el estado del simulador:", e);
+        console.error("Error al verificar el acceso al simulador:", e);
     }
 }
 
