@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominio no disponible - En venta / Aparcado</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0F172A',
+                        cardBg: '#1E293B',
+                        accentBlue: '#38BDF8',
+                        accentGreen: '#22C55E'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b0f19;
+            color: #cbd5e1;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- Header / Navbar estilo Registrar -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-sky-500 text-slate-950 p-2 rounded-lg font-bold text-xl flex items-center justify-center w-9 h-9">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-slate-100 text-lg tracking-tight">DomainPark<span class="text-sky-400">Services</span></span>
+                    <span class="hidden sm:inline-block text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full ml-2">Verified Broker</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 text-xs sm:text-sm">
+                <span class="text-slate-400 hidden md:inline"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1.5"></i> Transacción segura protegida por Escrow</span>
+                <a href="#inquire" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold px-4 py-2 rounded-lg transition-all text-xs">
+                    Contactar Propietario
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8 sm:py-12 flex-grow w-full">
+
+        <!-- Top Banner / Notice -->
+        <div class="mb-8 p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-start space-x-3 text-amber-200/90 text-sm">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5 shrink-0"></i>
+            <div>
+                <strong class="font-semibold text-amber-300">Aviso de servicio:</strong> El sitio web que intentas visitar ya no se encuentra activo o su periodo de registro ha expirado. Este dominio está actualmente estacionado en la red de negociación pública.
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+            <!-- Columna Izquierda: Información Principal del Dominio -->
+            <div class="lg:col-col-span-2 lg:col-span-2 space-y-6">
+
+                <!-- Card de Encabezado de Dominio -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 glow-effect relative overflow-hidden">
+                    <div class="absolute -right-12 -top-12 w-40 h-40 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="inline-flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Dominio Libre / En Venta</span>
+                    </div>
+
+                    <h1 id="domain-name" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight break-all mb-3">
+                        midominio.com
+                    </h1>
+                    <p class="text-slate-400 text-base sm:text-lg mb-6">
+                        Este nombre de dominio está disponible para su compra inmediata o alquiler de uso exclusivo.
+                    </p>
+
+                    <!-- Stats / Quick Info -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-800 text-sm">
+                        <div>
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider font-semibold mb-1">Estado de Dominio</span>
+                            <span class="text-slate-200 font-medium flex items-center">
+                                <i class="fa-solid fa-circle-exclamation text-amber-400 mr-1.5 text-xs"></i> Expirado / Aparcado
+                            </span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider font-semibold mb-1">Valor Estimado</span>
+                            <span class="text-emerald-400 font-bold">$450 - $1,200 USD</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider font-semibold mb-1">Registrador</span>
+                            <span class="text-slate-200 font-medium">NameServices Corp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalle de la Ficha Técnica del Dominio -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                        <i class="fa-solid fa-server text-sky-400 mr-2"></i> Reporte de Disponibilidad y WHOIS
+                    </h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between py-2 border-b border-slate-800/60">
+                            <span class="text-slate-400">Extensión TLD</span>
+                            <span class="text-slate-200 font-mono font-medium">.COM / Estándar</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-slate-800/60">
+                            <span class="text-slate-400">Servidores de Nombre (DNS)</span>
+                            <span class="text-slate-200 font-mono text-xs">ns1.parkingsystem.net / ns2.parkingsystem.net</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-slate-800/60">
+                            <span class="text-slate-400">Transferencia Directa</span>
+                            <span class="text-emerald-400 font-medium"><i class="fa-solid fa-check mr-1"></i> Habilitada (AuthKey listo)</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="text-slate-400">Protección de Datos</span>
+                            <span class="text-slate-200">WHOIS Privacy Shield Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anuncios Simulados / Enlaces de Interés Estilo "Parked Domain" -->
+                <div class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6">
+                    <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold block mb-3">Búsquedas Relacionadas y Enlaces de Patrocinio</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="#inquire" class="p-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 rounded-xl flex items-center justify-between text-sm transition-all group">
+                            <span class="text-slate-300 font-medium group-hover:text-sky-400">Comprar dominios similares</span>
+                            <i class="fa-solid fa-chevron-right text-slate-500 text-xs"></i>
+                        </a>
+                        <a href="#inquire" class="p-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 rounded-xl flex items-center justify-between text-sm transition-all group">
+                            <span class="text-slate-300 font-medium group-hover:text-sky-400">Servicios de Hosting Web</span>
+                            <i class="fa-solid fa-chevron-right text-slate-500 text-xs"></i>
+                        </a>
+                        <a href="#inquire" class="p-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 rounded-xl flex items-center justify-between text-sm transition-all group">
+                            <span class="text-slate-300 font-medium group-hover:text-sky-400">Evaluación gratuita de dominios</span>
+                            <i class="fa-solid fa-chevron-right text-slate-500 text-xs"></i>
+                        </a>
+                        <a href="#inquire" class="p-3 bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 rounded-xl flex items-center justify-between text-sm transition-all group">
+                            <span class="text-slate-300 font-medium group-hover:text-sky-400">Certificados SSL Económicos</span>
+                            <i class="fa-solid fa-chevron-right text-slate-500 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Formulario de Adquisición / Contacto -->
+            <div id="inquire" class="lg:col-span-1 space-y-6">
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative">
+                    <h3 class="text-xl font-bold text-white mb-1">Hacer una Oferta</h3>
+                    <p class="text-slate-400 text-xs mb-6">Ponte en contacto con el administrador o broker asignado para adquirir este dominio.</p>
+
+                    <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Nombre Completo</label>
+                            <input type="text" required placeholder="Tu nombre o empresa" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Correo Electrónico</label>
+                            <input type="email" required placeholder="correo@ejemplo.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Oferta Propuesta (USD)</label>
+                            <div class="relative">
+                                <span class="absolute left-3.5 top-2.5 text-slate-500 text-sm">$</span>
+                                <input type="number" min="50" placeholder="250" class="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Mensaje o Consulta</label>
+                            <textarea rows="3" placeholder="Hola, me interesa comprar este dominio o solicitar información..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all resize-none"></textarea>
+                        </div>
+
+                        <!-- Información de contacto directa configurable -->
+                        <div class="p-3 bg-slate-950/70 border border-slate-800/80 rounded-lg text-xs space-y-1.5 text-slate-400">
+                            <div class="flex items-center text-slate-300">
+                                <i class="fa-solid fa-envelope text-sky-400 mr-2"></i>
+                                <span>Soporte: <strong>contacto@domainbroker.com</strong></span>
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i>
+                                <span>WhatsApp: <strong>+1 (800) 555-0199</strong></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3 rounded-lg transition-all text-sm shadow-lg shadow-sky-500/10 flex items-center justify-center space-x-2">
+                            <span>Enviar Oferta de Compra</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+
+                    <!-- Mensaje de confirmación (oculto por defecto) -->
+                    <div id="form-success" class="hidden absolute inset-0 bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center space-y-3 z-10">
+                        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Oferta Enviada</h4>
+                        <p class="text-slate-400 text-xs">Tu mensaje ha sido remitido al agente registrado. Te contactaremos a la brevedad.</p>
+                        <button onclick="resetForm()" class="text-xs text-sky-400 hover:underline pt-2">Enviar otra consulta</button>
+                    </div>
+                </div>
+
+                <!-- Badge de Garantía -->
+                <div class="p-4 bg-slate-900/40 border border-slate-800/60 rounded-xl text-xs text-slate-400 flex items-start space-x-3">
+                    <i class="fa-solid fa-lock text-slate-500 text-base mt-0.5"></i>
+                    <div>
+                        <strong class="text-slate-300 block mb-0.5">Transferencia de Dominio Segura</strong>
+                        Todos los pagos y transferencias son gestionados a través de custodia neutral (Escrow) para garantizar la entrega del dominio.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/60 py-6 mt-12 text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © <span id="year"></span> DomainParkServices Inc. Todos los derechos reservados.
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="#" class="hover:text-slate-200 transition-colors">Términos de Servicio</a>
+                <a href="#" class="hover:text-slate-200 transition-colors">Política de Privacidad</a>
+                <a href="#" class="hover:text-slate-200 transition-colors">Contacto WHOIS</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para dinámicamente mostrar el nombre del dominio actual y simular interacción -->
+    <script>
+        // Establecer año actual en footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mostrar dinámicamente el nombre de dominio basado en donde está alojado
+        const hostname = window.location.hostname || "simulador-examen.com";
+        document.getElementById('domain-name').textContent = hostname;
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+
+        function resetForm() {
+            document.getElementById('contact-form').reset();
+            document.getElementById('form-success').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
