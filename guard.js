@@ -5,7 +5,7 @@ async function verificarAccesoExamen() {
 
     try {
         // Consulta directa al backend para leer el id: 2 de Supabase
-        const res = await fetch(`${URL_SERVIDOR}/api/admin/test-sim-status?t=${Date.now()}`);
+        const res = await fetch(`${URL_SERVIDOR}/api/test-sim-status?t=${Date.now()}`);
         if (!res.ok) return;
         
         const data = await res.json();
