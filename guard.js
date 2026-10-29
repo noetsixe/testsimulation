@@ -1,14 +1,31 @@
+
 const URL_SERVIDOR = "https://api.nova-sync.xyz";
 
-let verificandoAcceso = false;
+let conexionSSE = null;
+let reconexionProgramada = false;
 
-async function verificarAccesoExamen() {
-    if (verificandoAcceso) return;
-    verificandoAcceso = true;
+const rutaActual = window.location.pathname;
+const esPaginaDesactivada = rutaActual.endsWith("desactivada.html");
 
-    const rutaActual = window.location.pathname;
-    const esPaginaDesactivada = rutaActual.endsWith("desactivada.html");
+function permitirMostrarPagina() {
+    document.documentElement.classList.remove("acceso-pendiente");
+}
 
+function redirigirSiCorresponde(active) {
+    if (!active && !esPaginaDesactivada) {
+        window.location.replace("/desactivada.html");
+        return;
+    }
+
+    if (active && esPaginaDesactivada) {
+        window.location.replace("/index.html");
+        return;
+    }
+
+    permitirMostrarPagina();
+}
+
+async function verificarEstadoInicial() {
     try {
         const res = await fetch(
             `${URL_SERVIDOR}/api/test-sim-status?t=${Date.now()}`,
@@ -25,34 +42,59 @@ async function verificarAccesoExamen() {
             throw new Error("Estado inválido del servidor");
         }
 
-        if (!data.active && !esPaginaDesactivada) {
-            window.location.replace("/desactivada.html");
-            return;
-        }
-
-        if (data.active && esPaginaDesactivada) {
-            window.location.replace("/index.html");
-            return;
-        }
-
-        // El estado permite mostrar esta página.
-        document.documentElement.classList.remove("acceso-pendiente");
+        redirigirSiCorresponde(data.active);
+        return true;
 
     } catch (error) {
         console.error("Error al verificar acceso:", error);
 
         if (!esPaginaDesactivada) {
             window.location.replace("/desactivada.html");
-            return;
+            return false;
         }
 
-        // Si falla el servidor, mostrar la página desactivada.
-        document.documentElement.classList.remove("acceso-pendiente");
-
-    } finally {
-        verificandoAcceso = false;
+        // Si falla el servidor, mantener visible la página desactivada.
+        permitirMostrarPagina();
+        return false;
     }
 }
 
-verificarAccesoExamen();
-setInterval(verificarAccesoExamen, 5000);
+function conectarSSE() {
+    if (conexionSSE) {
+        conexionSSE.close();
+    }
+
+    conexionSSE = new EventSource(
+        `${URL_SERVIDOR}/api/test-sim-events`
+    );
+
+    conexionSSE.onmessage = (event) => {
+        try {
+            const data = JSON.parse(event.data);
+
+            if (typeof data.active !== "boolean") {
+                throw new Error("Estado inválido recibido por SSE");
+            }
+
+            redirigirSiCorresponde(data.active);
+
+        } catch (error) {
+            console.error("Error al procesar actualización SSE:", error);
+        }
+    };
+
+    conexionSSE.onerror = () => {
+        console.warn("Conexión SSE interrumpida; el navegador intentará reconectar.");
+    };
+}
+
+async function iniciarGuardia() {
+    const estadoVerificado = await verificarEstadoInicial();
+
+    // Solo conectar SSE si la verificación inicial fue correcta.
+    if (estadoVerificado) {
+        conectarSSE();
+    }
+}
+
+iniciarGuardia();
